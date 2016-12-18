@@ -1,0 +1,47 @@
+body {
+    background-color: #B2B2B2;
+    width: 100%;
+}
+
+form {
+    border: solid 1px white;
+    width: 35%;
+    height: 50%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 150px;
+text-align: center;
+
+}
+
+.centre{
+
+    width: 90%;
+    height:70%;
+    /*margin-top: 40px;*/
+}
+
+.title {
+    font-size:20px;
+    letter-spacing: 3px;
+    margin-top: 20px;
+}
+
+.login{
+    background-color: #01AAED;
+}
+
+.errorInfo{
+    margin-top: 70px;
+    margin-bottom: 5px;
+}
+.errorInfo .error{
+    color: red;
+    margin-right: 0px;
+}
+
+
+
+
+
+

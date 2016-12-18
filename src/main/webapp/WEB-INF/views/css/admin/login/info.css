@@ -1,0 +1,19 @@
+.fa-edit {
+    color: #a6a9ac;
+    padding-left: 765px;
+    padding-top: 10px;
+    visibility: hidden;
+}
+
+#show {
+    margin: 10px;
+}
+
+body:hover .fa-edit {
+    visibility: visible;
+    cursor: pointer;
+}
+
+.layui-form{
+    display: none;
+}

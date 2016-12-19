@@ -23,13 +23,16 @@ layui.define(['layer', 'form', 'element', 'validate'], function (exports) {
 
 //初始化操作
 function _init() {
-    var height = $(document).height() - 121;
-    var width = $(document).width() - $("#admin-navbar-side").width() - 10;
-    $("#tab").css({height: height, width: width});
-    //自适应
-    _iframeAdaption()
+    // var height = $(document).height() - 121;
+    // var width = $(document).width() - $("#admin-navbar-side").width() - 10;
+    // $("#tab").css({height: height, width: width});
+
+    // //自适应
+    _iframeAdaption();
     //个人信息
-    _alertInfo()
+    _alertInfo();
+    //用户退出
+    _logout();
 
 }
 
@@ -67,7 +70,7 @@ function _iframe(url, name, element) {
 function _iframeAdaption() {
     //iframe自适应
     $(window).on('resize', function () {
-        var $content = $('.admin-nav-card .layui-tab-content');
+        var $content = $('#admin-navbar-side');
         $content.height($(this).height() - 147);
         $content.find('iframe').each(function () {
             $(this).height($content.height());
@@ -92,4 +95,16 @@ function _alertInfo() {
         });
 
     });
+}
+
+/**
+ * 描述：用户退出
+ * @private
+ */
+function _logout() {
+    $("#logout").click(function () {
+        layer.confirm("是否确定退出？", {icon: 0}, function () {
+            top.location = "/admin/login/logout";
+        })
+    })
 }

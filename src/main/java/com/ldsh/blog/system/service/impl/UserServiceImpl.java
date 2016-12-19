@@ -78,4 +78,16 @@ public class UserServiceImpl implements IUserService {
         List<User> users = userMapper.selectByExample(userExample);
         return users.size() > 0 ? true : false;
     }
+
+    /**
+     * 描述：更新用户信息
+     *
+     * @param user 用户对象
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public boolean modifyUser(User user) throws Exception {
+        return userMapper.updateByPrimaryKeySelective(user) > 0 ? true : false;
+    }
 }

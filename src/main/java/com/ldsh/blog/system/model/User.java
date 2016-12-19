@@ -1,94 +1,112 @@
 package com.ldsh.blog.system.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class User {
     /**
      * 唯一标识, 所属表字段为blog_user.ID
+     *
      * @mbggenerated
      */
     private String id;
 
     /**
      * 用户名, 所属表字段为blog_user.BU_USER_NAME
+     *
      * @mbggenerated
      */
     private String userName;
 
     /**
      * 密码, 所属表字段为blog_user.BU_PASSWORD
+     *
      * @mbggenerated
      */
     private String password;
 
     /**
      * 姓名, 所属表字段为blog_user.BU_NAME
+     *
      * @mbggenerated
      */
     private String name;
 
     /**
      * 性别(0:女 1:男), 所属表字段为blog_user.BU_SEX
+     *
      * @mbggenerated
      */
     private String sex;
 
     /**
      * 地址, 所属表字段为blog_user.BU_ADDRESS
+     *
      * @mbggenerated
      */
     private String address;
 
     /**
      * 生日, 所属表字段为blog_user.BU_DIRTHDAY
+     *
      * @mbggenerated
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dirthday;
 
     /**
      * 手机号, 所属表字段为blog_user.BU_MOBILE
+     *
      * @mbggenerated
      */
     private String mobile;
 
     /**
      * 邮箱, 所属表字段为blog_user.BU_MAIL
+     *
      * @mbggenerated
      */
     private String mail;
 
     /**
      * 微信号, 所属表字段为blog_user.BU_WECHAT
+     *
      * @mbggenerated
      */
     private String wechat;
 
     /**
      * 描述, 所属表字段为blog_user.BU_SKETCH
+     *
      * @mbggenerated
      */
     private String sketch;
 
     /**
      * 加盐值, 所属表字段为blog_user.BU_ENCRYPT_SALT
+     *
      * @mbggenerated
      */
     private String encryptSalt;
 
     /**
      * 创建时间, 所属表字段为blog_user.BU_CREATE_TIME
+     *
      * @mbggenerated
      */
     private Date createTime;
 
     /**
      * 操作时间, 所属表字段为blog_user.BU_OPERATE_TIME
+     *
      * @mbggenerated
      */
     private Date operateTime;
 
     /**
      * 返回列值： blog_user.ID
+     *
      * @mbggenerated
      */
     public String getId() {
@@ -97,6 +115,7 @@ public class User {
 
     /**
      * 设置列值：blog_user.ID
+     *
      * @mbggenerated
      */
     public void setId(String id) {
@@ -105,6 +124,7 @@ public class User {
 
     /**
      * 返回列值： blog_user.BU_USER_NAME
+     *
      * @mbggenerated
      */
     public String getUserName() {
@@ -113,6 +133,7 @@ public class User {
 
     /**
      * 设置列值：blog_user.BU_USER_NAME
+     *
      * @mbggenerated
      */
     public void setUserName(String userName) {
@@ -121,6 +142,7 @@ public class User {
 
     /**
      * 返回列值： blog_user.BU_PASSWORD
+     *
      * @mbggenerated
      */
     public String getPassword() {
@@ -129,6 +151,7 @@ public class User {
 
     /**
      * 设置列值：blog_user.BU_PASSWORD
+     *
      * @mbggenerated
      */
     public void setPassword(String password) {
@@ -137,6 +160,7 @@ public class User {
 
     /**
      * 返回列值： blog_user.BU_NAME
+     *
      * @mbggenerated
      */
     public String getName() {
@@ -145,6 +169,7 @@ public class User {
 
     /**
      * 设置列值：blog_user.BU_NAME
+     *
      * @mbggenerated
      */
     public void setName(String name) {
@@ -153,6 +178,7 @@ public class User {
 
     /**
      * 返回列值： blog_user.BU_SEX
+     *
      * @mbggenerated
      */
     public String getSex() {
@@ -161,6 +187,7 @@ public class User {
 
     /**
      * 设置列值：blog_user.BU_SEX
+     *
      * @mbggenerated
      */
     public void setSex(String sex) {
@@ -169,6 +196,7 @@ public class User {
 
     /**
      * 返回列值： blog_user.BU_ADDRESS
+     *
      * @mbggenerated
      */
     public String getAddress() {
@@ -177,6 +205,7 @@ public class User {
 
     /**
      * 设置列值：blog_user.BU_ADDRESS
+     *
      * @mbggenerated
      */
     public void setAddress(String address) {
@@ -185,6 +214,7 @@ public class User {
 
     /**
      * 返回列值： blog_user.BU_DIRTHDAY
+     *
      * @mbggenerated
      */
     public Date getDirthday() {
@@ -193,6 +223,7 @@ public class User {
 
     /**
      * 设置列值：blog_user.BU_DIRTHDAY
+     *
      * @mbggenerated
      */
     public void setDirthday(Date dirthday) {
@@ -201,6 +232,7 @@ public class User {
 
     /**
      * 返回列值： blog_user.BU_MOBILE
+     *
      * @mbggenerated
      */
     public String getMobile() {
@@ -209,6 +241,7 @@ public class User {
 
     /**
      * 设置列值：blog_user.BU_MOBILE
+     *
      * @mbggenerated
      */
     public void setMobile(String mobile) {
@@ -217,6 +250,7 @@ public class User {
 
     /**
      * 返回列值： blog_user.BU_MAIL
+     *
      * @mbggenerated
      */
     public String getMail() {
@@ -225,6 +259,7 @@ public class User {
 
     /**
      * 设置列值：blog_user.BU_MAIL
+     *
      * @mbggenerated
      */
     public void setMail(String mail) {
@@ -233,6 +268,7 @@ public class User {
 
     /**
      * 返回列值： blog_user.BU_WECHAT
+     *
      * @mbggenerated
      */
     public String getWechat() {
@@ -241,6 +277,7 @@ public class User {
 
     /**
      * 设置列值：blog_user.BU_WECHAT
+     *
      * @mbggenerated
      */
     public void setWechat(String wechat) {
@@ -249,6 +286,7 @@ public class User {
 
     /**
      * 返回列值： blog_user.BU_SKETCH
+     *
      * @mbggenerated
      */
     public String getSketch() {
@@ -257,6 +295,7 @@ public class User {
 
     /**
      * 设置列值：blog_user.BU_SKETCH
+     *
      * @mbggenerated
      */
     public void setSketch(String sketch) {
@@ -265,6 +304,7 @@ public class User {
 
     /**
      * 返回列值： blog_user.BU_ENCRYPT_SALT
+     *
      * @mbggenerated
      */
     public String getEncryptSalt() {
@@ -273,6 +313,7 @@ public class User {
 
     /**
      * 设置列值：blog_user.BU_ENCRYPT_SALT
+     *
      * @mbggenerated
      */
     public void setEncryptSalt(String encryptSalt) {
@@ -281,6 +322,7 @@ public class User {
 
     /**
      * 返回列值： blog_user.BU_CREATE_TIME
+     *
      * @mbggenerated
      */
     public Date getCreateTime() {
@@ -289,6 +331,7 @@ public class User {
 
     /**
      * 设置列值：blog_user.BU_CREATE_TIME
+     *
      * @mbggenerated
      */
     public void setCreateTime(Date createTime) {
@@ -297,6 +340,7 @@ public class User {
 
     /**
      * 返回列值： blog_user.BU_OPERATE_TIME
+     *
      * @mbggenerated
      */
     public Date getOperateTime() {
@@ -305,6 +349,7 @@ public class User {
 
     /**
      * 设置列值：blog_user.BU_OPERATE_TIME
+     *
      * @mbggenerated
      */
     public void setOperateTime(Date operateTime) {

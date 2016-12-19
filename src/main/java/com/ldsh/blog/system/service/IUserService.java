@@ -46,4 +46,13 @@ public interface IUserService {
      * @throws Exception
      */
     List<User> isUserNameExist(String userName) throws Exception;
+
+    /**
+     * 描述：更新用户信息
+     *
+     * @param user
+     * @return
+     * @throws Exception
+     */
+    boolean modifyUser(User user) throws Exception;
 }

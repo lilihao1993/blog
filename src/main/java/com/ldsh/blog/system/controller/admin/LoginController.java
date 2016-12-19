@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import java.util.List;
 
@@ -117,5 +118,18 @@ public class LoginController {
         //4.将其对象存入session
         model.addAttribute(Constant.SESSION_USER_INFO, userList.get(0));
         return new AjaxResponse<>(true);
+    }
+
+    /**
+     * 用户退出
+     *
+     * @param sessionStatus session
+     * @return 登录页面
+     */
+    @RequestMapping("logout")
+    public String logout(SessionStatus sessionStatus) {
+        // 失效用户session
+        sessionStatus.setComplete();
+        return "redirect:/";
     }
 }

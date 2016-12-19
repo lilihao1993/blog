@@ -14,13 +14,13 @@
             <a href="javascript:;" id="user" js-userId="${SESSION_USER_INFO.id}">${SESSION_USER_INFO.userName}</a>
             <dl class="layui-nav-child">
                 <dd id="info"><a href="javascript:;"><i class="fa fa-user-circle" aria-hidden="true"></i> 个人信息</a></dd>
-                <dd><a href="javascript:;"><i class="fa fa-gear" aria-hidden="true"></i> 设置</a></dd>
-                <dd><a href="login.html"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a></dd>
+                <dd><a href="javascript:void(0);"><i class="fa fa-gear" aria-hidden="true"></i> 设置</a></dd>
+                <dd><a href="javascript:void(0);" id="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a></dd>
             </dl>
         </li>
     </ul>
 </div>
-<div class="layui-side-scroll leftNavigate" id="admin-navbar-side" lay-filter="side">
+<div class="layui-side-scroll leftNavigate" id="admin-navbar-side" lay-filter="resize">
     <ul class="layui-nav layui-nav-tree site-demo-nav" lay-filter="demo">
         <c:forEach items="${homeResourceDto}" var="homeResource">
             <li class="layui-nav-item layui-nav-itemed">

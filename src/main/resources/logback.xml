@@ -140,23 +140,23 @@
         <appender-ref ref="STDOUT" />
     </logger>
 
-    <logger name="system.dao" level="debug"
+    <logger name="com.ldsh.blog.system.dao" level="debug"
             additivity="true">
         <appender-ref ref="SQL_LOG_FILE" />
     </logger>
 
-    <logger name="system.mapper" level="debug"
+    <logger name="com.ldsh.blog.system.mapper" level="debug"
             additivity="true">
         <appender-ref ref="SQL_LOG_FILE" />
     </logger>
 
-    <logger name="system.service" level="debug"
+    <logger name="com.ldsh.blog.system.service" level="debug"
             additivity="true">
         <appender-ref ref="SQL_LOG_FILE" />
     </logger>
 
     <!-- 业务日志logger -->
-    <logger name="system" level="info" additivity="true">
+    <logger name="com.ldsh.blog.system" level="info" additivity="true">
         <appender-ref ref="BUSINESS_LOG_FILE" />
     </logger>
     <!-- logger end -->

@@ -125,7 +125,7 @@ public class ResourceController {
      * @throws Exception
      */
     @ResponseBody
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     public AjaxResponse<Boolean> delete(String id) throws Exception {
         return new AjaxResponse<>(resourceService.remove(id));
     }

@@ -35,7 +35,7 @@ function _deleteResource() {
         parent.layer.confirm("确定删除此资源？", {icon: 3, title: '提示'}, function () {
             $.ajax({
                 url: '/admin/resource/delete',
-                type: 'post',
+                type: 'DELETE',
                 data: {id: $('#delete').attr('js-id')},
                 success: function (data) {
                     parent.layer.closeAll();

@@ -45,12 +45,12 @@ public class Constant {
     public static final String SCALEIMG_PATH_KEY_WORD = "/upload/";
 
     /**
-     * 评论页码
+     * 默认页码
      */
-    public static final int COMMENT_PAGENUM = 1;
+    public static final int DEFAULT_PAGENUM = 1;
 
     /**
-     * 评论页大小
+     * 默认页大小
      */
-    public static final int COMMENT_PAGESIZE = 10;
+    public static final int DEFAULT_PAGESIZE = 10;
 }

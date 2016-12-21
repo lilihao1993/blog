@@ -48,7 +48,7 @@ public class categoryController {
      * @throws Exception
      */
     @ResponseBody
-    @RequestMapping(value = "/{categoryId}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{categoryId}", method = RequestMethod.POST)
     public AjaxResponse<Boolean> deleteCategory(@PathVariable("categoryId") String categoryId) throws Exception {
         return new AjaxResponse<>(categoryService.remove(categoryId));
     }
@@ -64,6 +64,19 @@ public class categoryController {
     @ResponseBody
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public AjaxResponse<Boolean> add(Category category) throws Exception {
+        return new AjaxResponse<>(categoryService.save(category));
+    }
+
+    /**
+     * 描述：修改类别
+     *
+     * @param category 类别对象
+     * @return
+     * @throws Exception
+     */
+    @ResponseBody
+    @RequestMapping(value = "/modify", method = RequestMethod.POST)
+    public AjaxResponse<Boolean> modify(Category category) throws Exception {
         return new AjaxResponse<>(categoryService.save(category));
     }
 

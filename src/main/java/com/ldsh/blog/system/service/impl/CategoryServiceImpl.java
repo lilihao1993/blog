@@ -9,6 +9,7 @@ import com.ldsh.blog.system.model.CategoryExample;
 import com.ldsh.blog.system.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class CategoryServiceImpl implements ICategoryService {
     @Override
     public boolean save(Category category) throws Exception {
         boolean flag = true;
-        if (category.getId().isEmpty()) {
+        if (StringUtils.isEmpty(category.getId())) {
             flag = categoryMapper.insert(category) > 0 ? true : false;
         } else {
             flag = categoryMapper.updateByPrimaryKeySelective(category) > 0 ? true : false;

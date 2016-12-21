@@ -33,13 +33,30 @@
             <td>${category.name}</td>
             <td>${category.orderNumber}</td>
             <td>
-                <button class="layui-btn layui-btn-normal layui-btn-small"><i class="layui-icon"></i>修改</button>
+                <button js-categoryId="${category.id}" class="layui-btn layui-btn-normal layui-btn-small modify"><i class="layui-icon"></i>修改</button>
                 <button js-categoryId="${category.id}" class="layui-btn layui-btn-normal layui-btn-small delete"><i class="layui-icon"></i>删除</button>
             </td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
+
+<form id="edit"  class="layui-form" hidden>
+    <div class="layui-form-item">
+        <label class="layui-form-label">名称</label>
+        <div class="layui-input-block">
+            <input type="text"  name="name" required="" lay-verify="required" placeholder="请输入类别名称"
+                   autocomplete="off" class="layui-input name">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">序号</label>
+        <div class="layui-input-block">
+            <input type="text"  name="orderNumber" required="" lay-verify="required"
+                   placeholder="请输入类别序号" autocomplete="off" class="layui-input orderNumber">
+        </div>
+    </div>
+</form>
 </body>
 <jsp:include page="../../common/common.jsp"/>
 <script>

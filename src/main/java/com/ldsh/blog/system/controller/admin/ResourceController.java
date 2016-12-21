@@ -86,6 +86,7 @@ public class ResourceController {
      * @return
      * @throws Exception
      */
+    @ResponseBody
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public AjaxResponse<Boolean> addResource(Resource resource) throws Exception {
         return new AjaxResponse<>(resourceService.save(resource));
@@ -125,7 +126,7 @@ public class ResourceController {
      * @throws Exception
      */
     @ResponseBody
-    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public AjaxResponse<Boolean> delete(String id) throws Exception {
         return new AjaxResponse<>(resourceService.remove(id));
     }

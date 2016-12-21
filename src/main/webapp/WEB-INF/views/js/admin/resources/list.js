@@ -19,12 +19,25 @@ layui.define(['layer', 'form', 'tree', 'laytpl', 'validate'], function (exports)
             });
         }
     });
-
+    //初始化操作
+    _init();
     //新增资源
     _add();
     exports('admin/resources/list', {}); //注意，这里是模块输出的核心，模块名必须和use时的模块名一致
 });
 
+
+/**
+ * 描述：初始化操作
+ * @private
+ */
+function _init() {
+    $("body").keypress(function () {
+        //取消表单提交的默认行为
+        window.event.returnValue = false; //IE
+        event.preventDefault(); //其他
+    });
+}
 
 /**
  * 描述：删除资源
@@ -35,13 +48,13 @@ function _deleteResource() {
         parent.layer.confirm("确定删除此资源？", {icon: 3, title: '提示'}, function () {
             $.ajax({
                 url: '/admin/resource/delete',
-                type: 'DELETE',
+                type: 'POST',
                 data: {id: $('#delete').attr('js-id')},
                 success: function (data) {
                     parent.layer.closeAll();
                     location.reload();
                 }, error: function (jqXHR) {
-                    layer.alert('操作失败，请重试');
+                    parent.layer.alert('操作失败，请重试');
                 }
 
             });

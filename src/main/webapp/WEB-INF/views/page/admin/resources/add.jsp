@@ -11,7 +11,7 @@
 <body>
 
 <h1>新增资源</h1>
-<form class="layui-form" method="post">
+<form class="layui-form">
     <div class="layui-form-item">
         <label class="layui-form-label">资源名称</label>
         <div class="layui-input-block">

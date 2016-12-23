@@ -37,6 +37,15 @@ public interface ICategoryService {
     boolean remove(String id) throws Exception;
 
     /**
+     * 描述：批量删除类别
+     *
+     * @param categoryIds 类别id集合
+     * @return
+     * @throws Exception
+     */
+    boolean batchRemove(List<String> categoryIds) throws Exception;
+
+    /**
      * 描述：获取类别
      *
      * @param id 类别唯一标识

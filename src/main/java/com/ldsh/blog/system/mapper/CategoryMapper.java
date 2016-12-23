@@ -2,7 +2,9 @@ package com.ldsh.blog.system.mapper;
 
 import com.ldsh.blog.system.model.Category;
 import com.ldsh.blog.system.model.CategoryExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface CategoryMapper {
@@ -60,4 +62,11 @@ public interface CategoryMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Category record);
+
+    /**
+     * 描述：批量删除类别列表
+     *
+     * @param categoryIds
+     */
+    int batchRemoveCategory(List<String> categoryIds);
 }

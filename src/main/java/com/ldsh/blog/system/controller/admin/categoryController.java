@@ -4,13 +4,14 @@ import com.ldsh.blog.common.bean.AjaxResponse;
 import com.ldsh.blog.common.constant.Constant;
 import com.ldsh.blog.system.model.Category;
 import com.ldsh.blog.system.service.ICategoryService;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 /**
@@ -51,6 +52,19 @@ public class categoryController {
     @RequestMapping(value = "/{categoryId}", method = RequestMethod.POST)
     public AjaxResponse<Boolean> deleteCategory(@PathVariable("categoryId") String categoryId) throws Exception {
         return new AjaxResponse<>(categoryService.remove(categoryId));
+    }
+
+
+    /**
+     * 描述：批量删除类别
+     *
+     * @return
+     * @throws Exception
+     */
+    @ResponseBody
+    @RequestMapping(value = "/batchdelete", method = RequestMethod.POST)
+    public AjaxResponse<Boolean> batchDelete(@RequestParam(value = "categoryIds[]") List<String> categoryIds) throws Exception {
+        return new AjaxResponse<>(categoryService.batchRemove(categoryIds));
     }
 
 

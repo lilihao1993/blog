@@ -38,7 +38,11 @@ public class CategoryServiceImpl implements ICategoryService {
         if (StringUtils.isEmpty(category.getId())) {
             flag = categoryMapper.insert(category) > 0 ? true : false;
         } else {
-            flag = categoryMapper.updateByPrimaryKeySelective(category) > 0 ? true : false;
+            if (categoryMapper.selectByPrimaryKey(category.getId()) != null) {
+                flag = categoryMapper.updateByPrimaryKeySelective(category) > 0 ? true : false;
+            } else {
+                flag = false;
+            }
         }
         return flag;
     }
@@ -75,6 +79,19 @@ public class CategoryServiceImpl implements ICategoryService {
         if (category != null) {
             return categoryMapper.deleteByPrimaryKey(id) > 0 ? true : false;
         }
+        return true;
+    }
+
+    /**
+     * 描述：批量删除类别
+     *
+     * @param categoryIds
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public boolean batchRemove(List<String> categoryIds) throws Exception {
+        categoryMapper.batchRemoveCategory(categoryIds);
         return true;
     }
 

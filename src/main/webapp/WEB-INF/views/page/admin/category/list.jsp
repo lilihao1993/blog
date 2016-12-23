@@ -13,13 +13,14 @@
 <fieldset class="layui-elem-field layui-field-title">
     <blockquote class="layui-elem-quote">
         <button class="layui-btn" id="add"><i class="layui-icon"></i>添加类别</button>
-        <button class="layui-btn"><i class="layui-icon"></i>批量删除</button>
+        <button class="layui-btn" id="batchDelete"><i class="layui-icon"></i>批量删除</button>
     </blockquote>
 
 </fieldset>
 <table class="layui-table"  lay-skin="line">
     <thead>
         <tr>
+            <th><input type="checkbox" class="js-checkbox"/></th>
             <th>类别</th>
             <th>文章</th>
             <th>排序</th>
@@ -29,6 +30,7 @@
     <tbody>
     <c:forEach var="category" items="${category.list}">
         <tr>
+            <td><input type="checkbox" js-categoryId="${category.id}"/></td>
             <td>${category.name}</td>
             <td>${category.name}</td>
             <td>${category.orderNumber}</td>
@@ -38,6 +40,7 @@
             </td>
         </tr>
     </c:forEach>
+
     </tbody>
 </table>
 
@@ -52,7 +55,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">序号</label>
         <div class="layui-input-block">
-            <input type="text"  name="orderNumber" required="" lay-verify="required"
+            <input type="text"  name="orderNumber" required="" lay-verify="required number"
                    placeholder="请输入类别序号" autocomplete="off" class="layui-input orderNumber">
         </div>
     </div>

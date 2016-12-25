@@ -96,7 +96,11 @@ function _batchDelete() {
                 data: {categoryIds: array},
                 type: 'POST',
                 success: function () {
-                    parent.layer.alert('删除成功');
+                    parent.layer.closeAll();
+                    layer.msg("删除成功！",{icon:1,time:500},function(){
+                        //销毁后刷新
+                        location.reload();
+                    });
                 }, error: function () {
                     parent.layer.alert('操作失败，请重试');
                 }
@@ -160,8 +164,8 @@ function _modify() {
         //1.清空数据
         $("#edit input").val('');
         var id = $(this).attr('js-categoryId');
-        $('.name').attr('value', $(this).parent().siblings().eq(0).text());
-        $('.orderNumber').attr('value', $(this).parent().siblings().eq(2).text());
+        $('.name').attr('value', $(this).parent().siblings().eq(1).text());
+        $('.orderNumber').attr('value', $(this).parent().siblings().eq(3).text());
         parent.layer.open({
             type: 0,
             title: '添加类别',

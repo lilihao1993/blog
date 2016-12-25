@@ -230,11 +230,13 @@
     </update>
 
     <!--批量删除类别-->
-    <delete id="batchRemoveCategory" parameterType="java.util.ArrayList">
-        DELETE * FROM blog_category
+    <!--注意：批量删除 collection和传来的参数无关， 就是固定的list-->
+    <delete id="batchRemoveCategory" parameterType="java.util.List">
+        DELETE  FROM blog_category
         WHERE
-        <foreach collection="#{categoryIds}" item="category" separator="AND">
-            blog_category.ID = #{category}
+        blog_category.ID in
+        <foreach collection="list" item="categoryId"  open="(" separator="," close=")">
+            #{categoryId}
         </foreach>
     </delete>
 </mapper>

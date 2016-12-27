@@ -54,7 +54,7 @@
 </form>
 </body>
 
-<jsp:include page="../../common/common.jsp"/>
+<jsp:include page="../common/common.jsp"/>
 <script>
     layui.use(['admin/resources/add', 'validate', 'validateRules']);
 </script>

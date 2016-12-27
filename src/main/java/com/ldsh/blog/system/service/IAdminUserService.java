@@ -1,23 +1,23 @@
 package com.ldsh.blog.system.service;
 
-import com.ldsh.blog.system.model.User;
+import com.ldsh.blog.system.model.AdminUser;
 
 import java.util.List;
 
 /**
  * 用户servcie
  */
-public interface IUserService {
+public interface IAdminUserService {
 
 
     /**
      * 描述：保存用户
      *
-     * @param user 用户对象
+     * @param adminUser 用户对象
      * @return
      * @throws Exception
      */
-    boolean addUser(User user) throws Exception;
+    boolean addUser(AdminUser adminUser) throws Exception;
 
 
     /**
@@ -27,7 +27,7 @@ public interface IUserService {
      * @return
      * @throws Exception
      */
-    User selectById(String id) throws Exception;
+    AdminUser selectById(String id) throws Exception;
 
     /**
      * 描述：判断邮箱是否已被注册
@@ -45,14 +45,14 @@ public interface IUserService {
      * @return
      * @throws Exception
      */
-    List<User> isUserNameExist(String userName) throws Exception;
+    List<AdminUser> isUserNameExist(String userName) throws Exception;
 
     /**
      * 描述：更新用户信息
      *
-     * @param user
+     * @param adminUser 后台用户
      * @return
      * @throws Exception
      */
-    boolean modifyUser(User user) throws Exception;
+    boolean modifyUser(AdminUser adminUser) throws Exception;
 }

@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ldsh.blog.system.mapper.ClientUserMapper" >
+  <resultMap id="BaseResultMap" type="com.ldsh.blog.system.model.ClientUser" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="BCU_USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="BCU_PASSWORD" property="password" jdbcType="VARCHAR" />
+    <result column="BCU_NAME" property="name" jdbcType="VARCHAR" />
+    <result column="BCU_SEX" property="sex" jdbcType="CHAR" />
+    <result column="BCU_ADDRESS" property="address" jdbcType="VARCHAR" />
+    <result column="BCU_DIRTHDAY" property="dirthday" jdbcType="TIMESTAMP" />
+    <result column="BCU_MOBILE" property="mobile" jdbcType="VARCHAR" />
+    <result column="BCU_MAIL" property="mail" jdbcType="VARCHAR" />
+    <result column="BCU_WECHAT" property="wechat" jdbcType="VARCHAR" />
+    <result column="BCU_STATUS" property="status" jdbcType="CHAR" />
+    <result column="BCU_SKETCH" property="sketch" jdbcType="VARCHAR" />
+    <result column="BCU_ENCRYPT_SALT" property="encryptSalt" jdbcType="VARCHAR" />
+    <result column="BCU_CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="BCU_OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP" />
+    <result column="BCU_ACTIVATE_TIME" property="activateTime" jdbcType="TIMESTAMP" />
+    <result column="BCU_PASSWORD_MODIFY_TIME" property="passwordModifyTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    ID, BCU_USER_NAME, BCU_PASSWORD, BCU_NAME, BCU_SEX, BCU_ADDRESS, BCU_DIRTHDAY, BCU_MOBILE, 
+    BCU_MAIL, BCU_WECHAT, BCU_STATUS, BCU_SKETCH, BCU_ENCRYPT_SALT, BCU_CREATE_TIME, 
+    BCU_OPERATE_TIME, BCU_ACTIVATE_TIME, BCU_PASSWORD_MODIFY_TIME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ldsh.blog.system.model.ClientUserExample" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from blog_client_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from blog_client_user
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    delete from blog_client_user
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ldsh.blog.system.model.ClientUserExample" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    delete from blog_client_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ldsh.blog.system.model.ClientUser" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <selectKey resultType="java.lang.String" keyProperty="id" order="BEFORE" >
+      select replace(uuid(), '-', '')
+    </selectKey>
+    insert into blog_client_user (ID, BCU_USER_NAME, BCU_PASSWORD, 
+      BCU_NAME, BCU_SEX, BCU_ADDRESS, BCU_DIRTHDAY, 
+      BCU_MOBILE, BCU_MAIL, BCU_WECHAT, 
+      BCU_STATUS, BCU_SKETCH, BCU_ENCRYPT_SALT, 
+      BCU_CREATE_TIME, BCU_OPERATE_TIME, BCU_ACTIVATE_TIME, 
+      BCU_PASSWORD_MODIFY_TIME)
+    values (#{id,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, #{address,jdbcType=VARCHAR}, #{dirthday,jdbcType=TIMESTAMP}, 
+      #{mobile,jdbcType=VARCHAR}, #{mail,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
+      #{status,jdbcType=CHAR}, #{sketch,jdbcType=VARCHAR}, #{encryptSalt,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{operateTime,jdbcType=TIMESTAMP}, #{activateTime,jdbcType=TIMESTAMP}, 
+      #{passwordModifyTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ldsh.blog.system.model.ClientUser" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <selectKey resultType="java.lang.String" keyProperty="id" order="BEFORE" >
+      select replace(uuid(), '-', '')
+    </selectKey>
+    insert into blog_client_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,
+      <if test="userName != null" >
+        BCU_USER_NAME,
+      </if>
+      <if test="password != null" >
+        BCU_PASSWORD,
+      </if>
+      <if test="name != null" >
+        BCU_NAME,
+      </if>
+      <if test="sex != null" >
+        BCU_SEX,
+      </if>
+      <if test="address != null" >
+        BCU_ADDRESS,
+      </if>
+      <if test="dirthday != null" >
+        BCU_DIRTHDAY,
+      </if>
+      <if test="mobile != null" >
+        BCU_MOBILE,
+      </if>
+      <if test="mail != null" >
+        BCU_MAIL,
+      </if>
+      <if test="wechat != null" >
+        BCU_WECHAT,
+      </if>
+      <if test="status != null" >
+        BCU_STATUS,
+      </if>
+      <if test="sketch != null" >
+        BCU_SKETCH,
+      </if>
+      <if test="encryptSalt != null" >
+        BCU_ENCRYPT_SALT,
+      </if>
+      <if test="createTime != null" >
+        BCU_CREATE_TIME,
+      </if>
+      <if test="operateTime != null" >
+        BCU_OPERATE_TIME,
+      </if>
+      <if test="activateTime != null" >
+        BCU_ACTIVATE_TIME,
+      </if>
+      <if test="passwordModifyTime != null" >
+        BCU_PASSWORD_MODIFY_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=VARCHAR},
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="dirthday != null" >
+        #{dirthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="mail != null" >
+        #{mail,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="sketch != null" >
+        #{sketch,jdbcType=VARCHAR},
+      </if>
+      <if test="encryptSalt != null" >
+        #{encryptSalt,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateTime != null" >
+        #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activateTime != null" >
+        #{activateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="passwordModifyTime != null" >
+        #{passwordModifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ldsh.blog.system.model.ClientUserExample" resultType="java.lang.Integer" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    select count(*) from blog_client_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    update blog_client_user
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userName != null" >
+        BCU_USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null" >
+        BCU_PASSWORD = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        BCU_NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null" >
+        BCU_SEX = #{record.sex,jdbcType=CHAR},
+      </if>
+      <if test="record.address != null" >
+        BCU_ADDRESS = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dirthday != null" >
+        BCU_DIRTHDAY = #{record.dirthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.mobile != null" >
+        BCU_MOBILE = #{record.mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mail != null" >
+        BCU_MAIL = #{record.mail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wechat != null" >
+        BCU_WECHAT = #{record.wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        BCU_STATUS = #{record.status,jdbcType=CHAR},
+      </if>
+      <if test="record.sketch != null" >
+        BCU_SKETCH = #{record.sketch,jdbcType=VARCHAR},
+      </if>
+      <if test="record.encryptSalt != null" >
+        BCU_ENCRYPT_SALT = #{record.encryptSalt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        BCU_CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.operateTime != null" >
+        BCU_OPERATE_TIME = #{record.operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.activateTime != null" >
+        BCU_ACTIVATE_TIME = #{record.activateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.passwordModifyTime != null" >
+        BCU_PASSWORD_MODIFY_TIME = #{record.passwordModifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    update blog_client_user
+    set ID = #{record.id,jdbcType=VARCHAR},
+      BCU_USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      BCU_PASSWORD = #{record.password,jdbcType=VARCHAR},
+      BCU_NAME = #{record.name,jdbcType=VARCHAR},
+      BCU_SEX = #{record.sex,jdbcType=CHAR},
+      BCU_ADDRESS = #{record.address,jdbcType=VARCHAR},
+      BCU_DIRTHDAY = #{record.dirthday,jdbcType=TIMESTAMP},
+      BCU_MOBILE = #{record.mobile,jdbcType=VARCHAR},
+      BCU_MAIL = #{record.mail,jdbcType=VARCHAR},
+      BCU_WECHAT = #{record.wechat,jdbcType=VARCHAR},
+      BCU_STATUS = #{record.status,jdbcType=CHAR},
+      BCU_SKETCH = #{record.sketch,jdbcType=VARCHAR},
+      BCU_ENCRYPT_SALT = #{record.encryptSalt,jdbcType=VARCHAR},
+      BCU_CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      BCU_OPERATE_TIME = #{record.operateTime,jdbcType=TIMESTAMP},
+      BCU_ACTIVATE_TIME = #{record.activateTime,jdbcType=TIMESTAMP},
+      BCU_PASSWORD_MODIFY_TIME = #{record.passwordModifyTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ldsh.blog.system.model.ClientUser" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    update blog_client_user
+    <set >
+      <if test="userName != null" >
+        BCU_USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        BCU_PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        BCU_NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        BCU_SEX = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="address != null" >
+        BCU_ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="dirthday != null" >
+        BCU_DIRTHDAY = #{dirthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mobile != null" >
+        BCU_MOBILE = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="mail != null" >
+        BCU_MAIL = #{mail,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        BCU_WECHAT = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        BCU_STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="sketch != null" >
+        BCU_SKETCH = #{sketch,jdbcType=VARCHAR},
+      </if>
+      <if test="encryptSalt != null" >
+        BCU_ENCRYPT_SALT = #{encryptSalt,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        BCU_CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateTime != null" >
+        BCU_OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activateTime != null" >
+        BCU_ACTIVATE_TIME = #{activateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="passwordModifyTime != null" >
+        BCU_PASSWORD_MODIFY_TIME = #{passwordModifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ldsh.blog.system.model.ClientUser" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    update blog_client_user
+    set BCU_USER_NAME = #{userName,jdbcType=VARCHAR},
+      BCU_PASSWORD = #{password,jdbcType=VARCHAR},
+      BCU_NAME = #{name,jdbcType=VARCHAR},
+      BCU_SEX = #{sex,jdbcType=CHAR},
+      BCU_ADDRESS = #{address,jdbcType=VARCHAR},
+      BCU_DIRTHDAY = #{dirthday,jdbcType=TIMESTAMP},
+      BCU_MOBILE = #{mobile,jdbcType=VARCHAR},
+      BCU_MAIL = #{mail,jdbcType=VARCHAR},
+      BCU_WECHAT = #{wechat,jdbcType=VARCHAR},
+      BCU_STATUS = #{status,jdbcType=CHAR},
+      BCU_SKETCH = #{sketch,jdbcType=VARCHAR},
+      BCU_ENCRYPT_SALT = #{encryptSalt,jdbcType=VARCHAR},
+      BCU_CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      BCU_OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
+      BCU_ACTIVATE_TIME = #{activateTime,jdbcType=TIMESTAMP},
+      BCU_PASSWORD_MODIFY_TIME = #{passwordModifyTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

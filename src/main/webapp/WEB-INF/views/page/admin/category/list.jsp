@@ -61,7 +61,7 @@
     </div>
 </form>
 </body>
-<jsp:include page="../../common/common.jsp"/>
+<jsp:include page="../common/common.jsp"/>
 <script>
     layui.use(['admin/category/list', 'validate', 'validateRules']);
 </script>

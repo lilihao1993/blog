@@ -5,9 +5,14 @@ package com.ldsh.blog.common.constant;
  */
 public class Constant {
     /**
-     * session中的用户信息.
+     * session中的后台管理员用户信息.
      */
-    public static final String SESSION_USER_INFO = "SESSION_USER_INFO";
+    public static final String SESSION_ADMIN_USER_INFO = "SESSION_ADMIN_USER_INFO";
+
+    /**
+     * session中的前台用户信息.
+     */
+    public static final String SESSION_CLIENT_ADMIN_USER_INFO = "SESSION_CLIENT_USER_INFO";
 
     /**
      * 登录状态异常提示信息

@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ldsh.blog.system.mapper.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.ldsh.blog.system.model.User" >
+<mapper namespace="com.ldsh.blog.system.mapper.AdminUserMapper" >
+  <resultMap id="BaseResultMap" type="com.ldsh.blog.system.model.AdminUser" >
     <!--
       WARNING - @mbggenerated
     -->
     <id column="ID" property="id" jdbcType="VARCHAR" />
-    <result column="BU_USER_NAME" property="userName" jdbcType="VARCHAR" />
-    <result column="BU_PASSWORD" property="password" jdbcType="VARCHAR" />
-    <result column="BU_NAME" property="name" jdbcType="VARCHAR" />
-    <result column="BU_SEX" property="sex" jdbcType="CHAR" />
-    <result column="BU_ADDRESS" property="address" jdbcType="VARCHAR" />
-    <result column="BU_DIRTHDAY" property="dirthday" jdbcType="TIMESTAMP" />
-    <result column="BU_MOBILE" property="mobile" jdbcType="VARCHAR" />
-    <result column="BU_MAIL" property="mail" jdbcType="VARCHAR" />
-    <result column="BU_WECHAT" property="wechat" jdbcType="VARCHAR" />
-    <result column="BU_SKETCH" property="sketch" jdbcType="VARCHAR" />
-    <result column="BU_ENCRYPT_SALT" property="encryptSalt" jdbcType="VARCHAR" />
-    <result column="BU_CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="BU_OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP" />
+    <result column="BAU_USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="BAU_PASSWORD" property="password" jdbcType="VARCHAR" />
+    <result column="BAU_NAME" property="name" jdbcType="VARCHAR" />
+    <result column="BAU_SEX" property="sex" jdbcType="CHAR" />
+    <result column="BAU_ADDRESS" property="address" jdbcType="VARCHAR" />
+    <result column="BAU_DIRTHDAY" property="dirthday" jdbcType="TIMESTAMP" />
+    <result column="BAU_MOBILE" property="mobile" jdbcType="VARCHAR" />
+    <result column="BAU_MAIL" property="mail" jdbcType="VARCHAR" />
+    <result column="BAU_WECHAT" property="wechat" jdbcType="VARCHAR" />
+    <result column="BAU_SKETCH" property="sketch" jdbcType="VARCHAR" />
+    <result column="BAU_STATUS" property="status" jdbcType="CHAR" />
+    <result column="BAU_ENCRYPT_SALT" property="encryptSalt" jdbcType="VARCHAR" />
+    <result column="BAU_CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="BAU_OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP" />
+    <result column="BAU_ACTIVATE_TIME" property="activateTime" jdbcType="TIMESTAMP" />
+    <result column="BAU_PASSWORD_MODIFY_TIME" property="passwordModifyTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <!--
@@ -88,10 +91,11 @@
     <!--
       WARNING - @mbggenerated
     -->
-    ID, BU_USER_NAME, BU_PASSWORD, BU_NAME, BU_SEX, BU_ADDRESS, BU_DIRTHDAY, BU_MOBILE, 
-    BU_MAIL, BU_WECHAT, BU_SKETCH, BU_ENCRYPT_SALT, BU_CREATE_TIME, BU_OPERATE_TIME
+    ID, BAU_USER_NAME, BAU_PASSWORD, BAU_NAME, BAU_SEX, BAU_ADDRESS, BAU_DIRTHDAY, BAU_MOBILE, 
+    BAU_MAIL, BAU_WECHAT, BAU_SKETCH, BAU_STATUS, BAU_ENCRYPT_SALT, BAU_CREATE_TIME, 
+    BAU_OPERATE_TIME, BAU_ACTIVATE_TIME, BAU_PASSWORD_MODIFY_TIME
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ldsh.blog.system.model.UserExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ldsh.blog.system.model.AdminUserExample" >
     <!--
       WARNING - @mbggenerated
     -->
@@ -100,7 +104,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from blog_user
+    from blog_admin_user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -114,91 +118,102 @@
     -->
     select 
     <include refid="Base_Column_List" />
-    from blog_user
+    from blog_admin_user
     where ID = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     <!--
       WARNING - @mbggenerated
     -->
-    delete from blog_user
+    delete from blog_admin_user
     where ID = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ldsh.blog.system.model.UserExample" >
+  <delete id="deleteByExample" parameterType="com.ldsh.blog.system.model.AdminUserExample" >
     <!--
       WARNING - @mbggenerated
     -->
-    delete from blog_user
+    delete from blog_admin_user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.ldsh.blog.system.model.User" >
+  <insert id="insert" parameterType="com.ldsh.blog.system.model.AdminUser" >
     <!--
       WARNING - @mbggenerated
     -->
     <selectKey resultType="java.lang.String" keyProperty="id" order="BEFORE" >
       select replace(uuid(), '-', '')
     </selectKey>
-    insert into blog_user (ID, BU_USER_NAME, BU_PASSWORD, 
-      BU_NAME, BU_SEX, BU_ADDRESS, BU_DIRTHDAY, 
-      BU_MOBILE, BU_MAIL, BU_WECHAT, 
-      BU_SKETCH, BU_ENCRYPT_SALT, BU_CREATE_TIME, 
-      BU_OPERATE_TIME)
+    insert into blog_admin_user (ID, BAU_USER_NAME, BAU_PASSWORD, 
+      BAU_NAME, BAU_SEX, BAU_ADDRESS, BAU_DIRTHDAY, 
+      BAU_MOBILE, BAU_MAIL, BAU_WECHAT, 
+      BAU_SKETCH, BAU_STATUS, BAU_ENCRYPT_SALT, 
+      BAU_CREATE_TIME, BAU_OPERATE_TIME, BAU_ACTIVATE_TIME, 
+      BAU_PASSWORD_MODIFY_TIME)
     values (#{id,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{name,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, #{address,jdbcType=VARCHAR}, #{dirthday,jdbcType=TIMESTAMP}, 
       #{mobile,jdbcType=VARCHAR}, #{mail,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
-      #{sketch,jdbcType=VARCHAR}, #{encryptSalt,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{operateTime,jdbcType=TIMESTAMP})
+      #{sketch,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}, #{encryptSalt,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{operateTime,jdbcType=TIMESTAMP}, #{activateTime,jdbcType=TIMESTAMP}, 
+      #{passwordModifyTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.ldsh.blog.system.model.User" >
+  <insert id="insertSelective" parameterType="com.ldsh.blog.system.model.AdminUser" >
     <!--
       WARNING - @mbggenerated
     -->
     <selectKey resultType="java.lang.String" keyProperty="id" order="BEFORE" >
       select replace(uuid(), '-', '')
     </selectKey>
-    insert into blog_user
+    insert into blog_admin_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       ID,
       <if test="userName != null" >
-        BU_USER_NAME,
+        BAU_USER_NAME,
       </if>
       <if test="password != null" >
-        BU_PASSWORD,
+        BAU_PASSWORD,
       </if>
       <if test="name != null" >
-        BU_NAME,
+        BAU_NAME,
       </if>
       <if test="sex != null" >
-        BU_SEX,
+        BAU_SEX,
       </if>
       <if test="address != null" >
-        BU_ADDRESS,
+        BAU_ADDRESS,
       </if>
       <if test="dirthday != null" >
-        BU_DIRTHDAY,
+        BAU_DIRTHDAY,
       </if>
       <if test="mobile != null" >
-        BU_MOBILE,
+        BAU_MOBILE,
       </if>
       <if test="mail != null" >
-        BU_MAIL,
+        BAU_MAIL,
       </if>
       <if test="wechat != null" >
-        BU_WECHAT,
+        BAU_WECHAT,
       </if>
       <if test="sketch != null" >
-        BU_SKETCH,
+        BAU_SKETCH,
+      </if>
+      <if test="status != null" >
+        BAU_STATUS,
       </if>
       <if test="encryptSalt != null" >
-        BU_ENCRYPT_SALT,
+        BAU_ENCRYPT_SALT,
       </if>
       <if test="createTime != null" >
-        BU_CREATE_TIME,
+        BAU_CREATE_TIME,
       </if>
       <if test="operateTime != null" >
-        BU_OPERATE_TIME,
+        BAU_OPERATE_TIME,
+      </if>
+      <if test="activateTime != null" >
+        BAU_ACTIVATE_TIME,
+      </if>
+      <if test="passwordModifyTime != null" >
+        BAU_PASSWORD_MODIFY_TIME,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -233,6 +248,9 @@
       <if test="sketch != null" >
         #{sketch,jdbcType=VARCHAR},
       </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
       <if test="encryptSalt != null" >
         #{encryptSalt,jdbcType=VARCHAR},
       </if>
@@ -242,13 +260,19 @@
       <if test="operateTime != null" >
         #{operateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="activateTime != null" >
+        #{activateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="passwordModifyTime != null" >
+        #{passwordModifyTime,jdbcType=TIMESTAMP},
+      </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ldsh.blog.system.model.UserExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.ldsh.blog.system.model.AdminUserExample" resultType="java.lang.Integer" >
     <!--
       WARNING - @mbggenerated
     -->
-    select count(*) from blog_user
+    select count(*) from blog_admin_user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -257,49 +281,58 @@
     <!--
       WARNING - @mbggenerated
     -->
-    update blog_user
+    update blog_admin_user
     <set >
       <if test="record.id != null" >
         ID = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.userName != null" >
-        BU_USER_NAME = #{record.userName,jdbcType=VARCHAR},
+        BAU_USER_NAME = #{record.userName,jdbcType=VARCHAR},
       </if>
       <if test="record.password != null" >
-        BU_PASSWORD = #{record.password,jdbcType=VARCHAR},
+        BAU_PASSWORD = #{record.password,jdbcType=VARCHAR},
       </if>
       <if test="record.name != null" >
-        BU_NAME = #{record.name,jdbcType=VARCHAR},
+        BAU_NAME = #{record.name,jdbcType=VARCHAR},
       </if>
       <if test="record.sex != null" >
-        BU_SEX = #{record.sex,jdbcType=CHAR},
+        BAU_SEX = #{record.sex,jdbcType=CHAR},
       </if>
       <if test="record.address != null" >
-        BU_ADDRESS = #{record.address,jdbcType=VARCHAR},
+        BAU_ADDRESS = #{record.address,jdbcType=VARCHAR},
       </if>
       <if test="record.dirthday != null" >
-        BU_DIRTHDAY = #{record.dirthday,jdbcType=TIMESTAMP},
+        BAU_DIRTHDAY = #{record.dirthday,jdbcType=TIMESTAMP},
       </if>
       <if test="record.mobile != null" >
-        BU_MOBILE = #{record.mobile,jdbcType=VARCHAR},
+        BAU_MOBILE = #{record.mobile,jdbcType=VARCHAR},
       </if>
       <if test="record.mail != null" >
-        BU_MAIL = #{record.mail,jdbcType=VARCHAR},
+        BAU_MAIL = #{record.mail,jdbcType=VARCHAR},
       </if>
       <if test="record.wechat != null" >
-        BU_WECHAT = #{record.wechat,jdbcType=VARCHAR},
+        BAU_WECHAT = #{record.wechat,jdbcType=VARCHAR},
       </if>
       <if test="record.sketch != null" >
-        BU_SKETCH = #{record.sketch,jdbcType=VARCHAR},
+        BAU_SKETCH = #{record.sketch,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        BAU_STATUS = #{record.status,jdbcType=CHAR},
       </if>
       <if test="record.encryptSalt != null" >
-        BU_ENCRYPT_SALT = #{record.encryptSalt,jdbcType=VARCHAR},
+        BAU_ENCRYPT_SALT = #{record.encryptSalt,jdbcType=VARCHAR},
       </if>
       <if test="record.createTime != null" >
-        BU_CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+        BAU_CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.operateTime != null" >
-        BU_OPERATE_TIME = #{record.operateTime,jdbcType=TIMESTAMP},
+        BAU_OPERATE_TIME = #{record.operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.activateTime != null" >
+        BAU_ACTIVATE_TIME = #{record.activateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.passwordModifyTime != null" >
+        BAU_PASSWORD_MODIFY_TIME = #{record.passwordModifyTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -310,91 +343,106 @@
     <!--
       WARNING - @mbggenerated
     -->
-    update blog_user
+    update blog_admin_user
     set ID = #{record.id,jdbcType=VARCHAR},
-      BU_USER_NAME = #{record.userName,jdbcType=VARCHAR},
-      BU_PASSWORD = #{record.password,jdbcType=VARCHAR},
-      BU_NAME = #{record.name,jdbcType=VARCHAR},
-      BU_SEX = #{record.sex,jdbcType=CHAR},
-      BU_ADDRESS = #{record.address,jdbcType=VARCHAR},
-      BU_DIRTHDAY = #{record.dirthday,jdbcType=TIMESTAMP},
-      BU_MOBILE = #{record.mobile,jdbcType=VARCHAR},
-      BU_MAIL = #{record.mail,jdbcType=VARCHAR},
-      BU_WECHAT = #{record.wechat,jdbcType=VARCHAR},
-      BU_SKETCH = #{record.sketch,jdbcType=VARCHAR},
-      BU_ENCRYPT_SALT = #{record.encryptSalt,jdbcType=VARCHAR},
-      BU_CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
-      BU_OPERATE_TIME = #{record.operateTime,jdbcType=TIMESTAMP}
+      BAU_USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      BAU_PASSWORD = #{record.password,jdbcType=VARCHAR},
+      BAU_NAME = #{record.name,jdbcType=VARCHAR},
+      BAU_SEX = #{record.sex,jdbcType=CHAR},
+      BAU_ADDRESS = #{record.address,jdbcType=VARCHAR},
+      BAU_DIRTHDAY = #{record.dirthday,jdbcType=TIMESTAMP},
+      BAU_MOBILE = #{record.mobile,jdbcType=VARCHAR},
+      BAU_MAIL = #{record.mail,jdbcType=VARCHAR},
+      BAU_WECHAT = #{record.wechat,jdbcType=VARCHAR},
+      BAU_SKETCH = #{record.sketch,jdbcType=VARCHAR},
+      BAU_STATUS = #{record.status,jdbcType=CHAR},
+      BAU_ENCRYPT_SALT = #{record.encryptSalt,jdbcType=VARCHAR},
+      BAU_CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      BAU_OPERATE_TIME = #{record.operateTime,jdbcType=TIMESTAMP},
+      BAU_ACTIVATE_TIME = #{record.activateTime,jdbcType=TIMESTAMP},
+      BAU_PASSWORD_MODIFY_TIME = #{record.passwordModifyTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ldsh.blog.system.model.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.ldsh.blog.system.model.AdminUser" >
     <!--
       WARNING - @mbggenerated
     -->
-    update blog_user
+    update blog_admin_user
     <set >
       <if test="userName != null" >
-        BU_USER_NAME = #{userName,jdbcType=VARCHAR},
+        BAU_USER_NAME = #{userName,jdbcType=VARCHAR},
       </if>
       <if test="password != null" >
-        BU_PASSWORD = #{password,jdbcType=VARCHAR},
+        BAU_PASSWORD = #{password,jdbcType=VARCHAR},
       </if>
       <if test="name != null" >
-        BU_NAME = #{name,jdbcType=VARCHAR},
+        BAU_NAME = #{name,jdbcType=VARCHAR},
       </if>
       <if test="sex != null" >
-        BU_SEX = #{sex,jdbcType=CHAR},
+        BAU_SEX = #{sex,jdbcType=CHAR},
       </if>
       <if test="address != null" >
-        BU_ADDRESS = #{address,jdbcType=VARCHAR},
+        BAU_ADDRESS = #{address,jdbcType=VARCHAR},
       </if>
       <if test="dirthday != null" >
-        BU_DIRTHDAY = #{dirthday,jdbcType=TIMESTAMP},
+        BAU_DIRTHDAY = #{dirthday,jdbcType=TIMESTAMP},
       </if>
       <if test="mobile != null" >
-        BU_MOBILE = #{mobile,jdbcType=VARCHAR},
+        BAU_MOBILE = #{mobile,jdbcType=VARCHAR},
       </if>
       <if test="mail != null" >
-        BU_MAIL = #{mail,jdbcType=VARCHAR},
+        BAU_MAIL = #{mail,jdbcType=VARCHAR},
       </if>
       <if test="wechat != null" >
-        BU_WECHAT = #{wechat,jdbcType=VARCHAR},
+        BAU_WECHAT = #{wechat,jdbcType=VARCHAR},
       </if>
       <if test="sketch != null" >
-        BU_SKETCH = #{sketch,jdbcType=VARCHAR},
+        BAU_SKETCH = #{sketch,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        BAU_STATUS = #{status,jdbcType=CHAR},
       </if>
       <if test="encryptSalt != null" >
-        BU_ENCRYPT_SALT = #{encryptSalt,jdbcType=VARCHAR},
+        BAU_ENCRYPT_SALT = #{encryptSalt,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
-        BU_CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+        BAU_CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="operateTime != null" >
-        BU_OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
+        BAU_OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activateTime != null" >
+        BAU_ACTIVATE_TIME = #{activateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="passwordModifyTime != null" >
+        BAU_PASSWORD_MODIFY_TIME = #{passwordModifyTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where ID = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ldsh.blog.system.model.User" >
+  <update id="updateByPrimaryKey" parameterType="com.ldsh.blog.system.model.AdminUser" >
     <!--
       WARNING - @mbggenerated
     -->
-    update blog_user
-    set BU_USER_NAME = #{userName,jdbcType=VARCHAR},
-      BU_PASSWORD = #{password,jdbcType=VARCHAR},
-      BU_NAME = #{name,jdbcType=VARCHAR},
-      BU_SEX = #{sex,jdbcType=CHAR},
-      BU_ADDRESS = #{address,jdbcType=VARCHAR},
-      BU_DIRTHDAY = #{dirthday,jdbcType=TIMESTAMP},
-      BU_MOBILE = #{mobile,jdbcType=VARCHAR},
-      BU_MAIL = #{mail,jdbcType=VARCHAR},
-      BU_WECHAT = #{wechat,jdbcType=VARCHAR},
-      BU_SKETCH = #{sketch,jdbcType=VARCHAR},
-      BU_ENCRYPT_SALT = #{encryptSalt,jdbcType=VARCHAR},
-      BU_CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      BU_OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP}
+    update blog_admin_user
+    set BAU_USER_NAME = #{userName,jdbcType=VARCHAR},
+      BAU_PASSWORD = #{password,jdbcType=VARCHAR},
+      BAU_NAME = #{name,jdbcType=VARCHAR},
+      BAU_SEX = #{sex,jdbcType=CHAR},
+      BAU_ADDRESS = #{address,jdbcType=VARCHAR},
+      BAU_DIRTHDAY = #{dirthday,jdbcType=TIMESTAMP},
+      BAU_MOBILE = #{mobile,jdbcType=VARCHAR},
+      BAU_MAIL = #{mail,jdbcType=VARCHAR},
+      BAU_WECHAT = #{wechat,jdbcType=VARCHAR},
+      BAU_SKETCH = #{sketch,jdbcType=VARCHAR},
+      BAU_STATUS = #{status,jdbcType=CHAR},
+      BAU_ENCRYPT_SALT = #{encryptSalt,jdbcType=VARCHAR},
+      BAU_CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      BAU_OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
+      BAU_ACTIVATE_TIME = #{activateTime,jdbcType=TIMESTAMP},
+      BAU_PASSWORD_MODIFY_TIME = #{passwordModifyTime,jdbcType=TIMESTAMP}
     where ID = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

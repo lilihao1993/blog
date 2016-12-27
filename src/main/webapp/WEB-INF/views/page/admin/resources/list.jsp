@@ -83,7 +83,7 @@
     </div>
 </script>
 </body>
-<jsp:include page="../../common/common.jsp"/>
+<jsp:include page="../common/common.jsp"/>
 <script>
     layui.use(['admin/resources/list', 'validate', 'validateRules']);
 </script>

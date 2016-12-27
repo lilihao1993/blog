@@ -16,43 +16,43 @@
             <fieldset class="layui-elem-field">
                 <legend>个人信息</legend>
                 <div class="layui-field-box">
-                    <h1>${SESSION_USER_INFO.userName}</h1>
+                    <h1>${SESSION_ADMIN_USER_INFO.userName}</h1>
                 <span class="layui-breadcrumb" lay-separator="|">
                   <a href="javascript:void(0)">
-                      <c:if test="${empty SESSION_USER_INFO.name}">
+                      <c:if test="${empty SESSION_ADMIN_USER_INFO.name}">
                           未填写姓名
                       </c:if>
-                      <c:if test="${!empty SESSION_USER_INFO.name}">
-                          ${SESSION_USER_INFO.name}
+                      <c:if test="${!empty SESSION_ADMIN_USER_INFO.name}">
+                          ${SESSION_ADMIN_USER_INFO.name}
                       </c:if>
                   </a>
                   <a href="javascript:void(0)">
-                      <c:if test="${empty SESSION_USER_INFO.sex}">
+                      <c:if test="${empty SESSION_ADMIN_USER_INFO.sex}">
                           未填写性别
                       </c:if>
-                      <c:if test="${SESSION_USER_INFO.sex == 0}">
+                      <c:if test="${SESSION_ADMIN_USER_INFO.sex == 0}">
                           女
                       </c:if>
-                      <c:if test="${SESSION_USER_INFO.sex == 1}">
+                      <c:if test="${SESSION_ADMIN_USER_INFO.sex == 1}">
                           男
                       </c:if>
                   </a>
                   <a href="javascript:void(0)">
-                      <c:if test="${empty SESSION_USER_INFO.dirthday}">
+                      <c:if test="${empty SESSION_ADMIN_USER_INFO.dirthday}">
                           未填写生日
                       </c:if>
-                      <c:if test="${!empty SESSION_USER_INFO.dirthday}">
-                          <fmt:formatDate value="${SESSION_USER_INFO.dirthday}" pattern="yyyy-MM-dd"/>
+                      <c:if test="${!empty SESSION_ADMIN_USER_INFO.dirthday}">
+                          <fmt:formatDate value="${SESSION_ADMIN_USER_INFO.dirthday}" pattern="yyyy-MM-dd"/>
                       </c:if>
                   </a>
                 </span>
                     <hr>
                     <blockquote class="layui-elem-quote layui-quote-nm">
-                        <c:if test="${empty SESSION_USER_INFO.sketch}">
+                        <c:if test="${empty SESSION_ADMIN_USER_INFO.sketch}">
                             <span>想说的话</span>
                         </c:if>
-                        <c:if test="${!empty SESSION_USER_INFO.sketch}">
-                            ${SESSION_USER_INFO.sketch}
+                        <c:if test="${!empty SESSION_ADMIN_USER_INFO.sketch}">
+                            ${SESSION_ADMIN_USER_INFO.sketch}
                         </c:if>
                     </blockquote>
                 </div>
@@ -65,11 +65,11 @@
                     <table class="layui-table"   lay-skin="nob">
                         <tbody>
                         <tr>
-                            <td>手机号：${SESSION_USER_INFO.mobile}</td>
-                            <td>邮箱：${SESSION_USER_INFO.mail}</td>
+                            <td>手机号：${SESSION_ADMIN_USER_INFO.mobile}</td>
+                            <td>邮箱：${SESSION_ADMIN_USER_INFO.mail}</td>
                         </tr>
                         <tr>
-                            <td>微信号：${SESSION_USER_INFO.wechat}</td>
+                            <td>微信号：${SESSION_ADMIN_USER_INFO.wechat}</td>
                         </tr>
                         </tbody>
                     </table>

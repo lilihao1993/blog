@@ -11,7 +11,7 @@
 <div class="topNavigate">
     <ul class="layui-nav" style="float: right;margin-right: 40px">
         <li class="layui-nav-item">
-            <a href="javascript:;" id="user" js-userId="${SESSION_USER_INFO.id}">${SESSION_USER_INFO.userName}</a>
+            <a href="javascript:;" id="user" js-userId="${SESSION_ADMIN_USER_INFO.id}">${SESSION_ADMIN_USER_INFO.userName}</a>
             <dl class="layui-nav-child">
                 <dd id="info"><a href="javascript:;"><i class="fa fa-user-circle" aria-hidden="true"></i> 个人信息</a></dd>
                 <dd><a href="javascript:void(0);"><i class="fa fa-gear" aria-hidden="true"></i> 设置</a></dd>
@@ -48,7 +48,7 @@
     </div>
 </div>
 </body>
-<jsp:include page="../../common/common.jsp"/>
+<jsp:include page="../common/common.jsp"/>
 <script>
     layui.use(['admin/login/index', 'validate', 'validateRules']);
 </script>

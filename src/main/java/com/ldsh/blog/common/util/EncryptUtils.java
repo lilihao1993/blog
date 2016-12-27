@@ -1,7 +1,7 @@
 package com.ldsh.blog.common.util;
 
 
-import com.ldsh.blog.system.model.User;
+import com.ldsh.blog.system.model.AdminUser;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.util.ByteSource;
@@ -39,13 +39,13 @@ public class EncryptUtils extends Md5Utils {
     /**
      * 用户密码加密
      *
-     * @param user 用户信息
+     * @param adminUser 后台用户信息
      */
-    public static void encryptPassword(User user) {
+    public static void encryptPassword(AdminUser adminUser) {
         String salt = randomNumberGenerator.nextBytes().toHex();
-        user.setEncryptSalt(salt);
-        user.setPassword(encryptPassword(user.getPassword(),
-                user.getEncryptSalt()));
+        adminUser.setEncryptSalt(salt);
+        adminUser.setPassword(encryptPassword(adminUser.getPassword(),
+                adminUser.getEncryptSalt()));
     }
 
 
@@ -83,9 +83,9 @@ public class EncryptUtils extends Md5Utils {
 //        System.out.println(ecode +"-----"+result);
 //        System.out.println(encryptPassword("llh1993824","6f5a06a658938c7ed05d79fdf6a7e0ad"));
 //        System.out.println("be7f94bbc22eb9a2655f773b55986104");
-        User user = new User();
-        user.setPassword("llh1993824");
-        encryptPassword(user);
-        System.out.println(user.toString());
+        AdminUser adminUser = new AdminUser();
+        adminUser.setPassword("llh1993824");
+        encryptPassword(adminUser);
+        System.out.println(adminUser.toString());
     }
 }

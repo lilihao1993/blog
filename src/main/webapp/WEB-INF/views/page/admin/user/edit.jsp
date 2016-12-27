@@ -14,13 +14,13 @@
         <label class="layui-form-label">用户名：</label>
         <div class="layui-input-block">
             <input type="text" name="userName" lay-verify="required" autocomplete="off"
-                   value="${SESSION_USER_INFO.userName}" class="layui-input" disabled="true">
+                   value="${SESSION_ADMIN_USER_INFO.userName}" class="layui-input" disabled="true">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">姓名：</label>
         <div class="layui-input-block">
-            <input type="text" name="name" lay-verify="required" value="${SESSION_USER_INFO.name}" autocomplete="off" placeholder="请输入姓名" class="layui-input">
+            <input type="text" name="name" lay-verify="required" value="${SESSION_ADMIN_USER_INFO.name}" autocomplete="off" placeholder="请输入姓名" class="layui-input">
         </div>
     </div>
 
@@ -28,15 +28,15 @@
         <label class="layui-form-label">性别：</label>
         <div class="layui-input-block">
             <input type="radio" name="sex" value="0" class="layui-input" title="女"
-                   <c:if test="${SESSION_USER_INFO.sex==0}">checked</c:if> />
+                   <c:if test="${SESSION_ADMIN_USER_INFO.sex==0}">checked</c:if> />
             <input type="radio" name="sex" value="1" class="layui-input" title="男"
-                   <c:if test="${SESSION_USER_INFO.sex==1}">checked</c:if> />
+                   <c:if test="${SESSION_ADMIN_USER_INFO.sex==1}">checked</c:if> />
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">生日：</label>
         <div class="layui-input-block">
-            <input class="laydate-icon" id="date" lay-verify="required" value="<fmt:formatDate value="${SESSION_USER_INFO.dirthday}" pattern="yyyy-MM-dd"/>" name="dirthday"
+            <input class="laydate-icon" id="date" lay-verify="required" value="<fmt:formatDate value="${SESSION_ADMIN_USER_INFO.dirthday}" pattern="yyyy-MM-dd"/>" name="dirthday"
                    placeholder="请选择生日"
                    style="width:200px; margin-right:10px;"
                    onclick="layui.laydate({elem: this,istoday:true,start:layer.now,max:layer.now, istime: true, format: 'YYYY-MM-DD'})"/>
@@ -45,33 +45,33 @@
     <div class="layui-form-item">
         <label class="layui-form-label">手机号：</label>
         <div class="layui-input-block">
-            <input type="text" name="mobile" lay-verify="required" autocomplete="off" value="${SESSION_USER_INFO.mobile}"
+            <input type="text" name="mobile" lay-verify="required" autocomplete="off" value="${SESSION_ADMIN_USER_INFO.mobile}"
                    placeholder="请输入手机号" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">邮箱：</label>
         <div class="layui-input-block">
-            <input type="text" name="mail" lay-verify="required" autocomplete="off" value="${SESSION_USER_INFO.mail}"
+            <input type="text" name="mail" lay-verify="required" autocomplete="off" value="${SESSION_ADMIN_USER_INFO.mail}"
                    placeholder="请输入手机号" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">微信号：</label>
         <div class="layui-input-block">
-            <input type="text" name="wechat" lay-verify="required" autocomplete="off" value="${SESSION_USER_INFO.wechat}"
+            <input type="text" name="wechat" lay-verify="required" autocomplete="off" value="${SESSION_ADMIN_USER_INFO.wechat}"
                    placeholder="请输入微信号" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <textarea name="sketch" required lay-verify="sketch" lay-verify="required" placeholder="想说的话" class="layui-textarea">
-            ${SESSION_USER_INFO.sketch}
+            ${SESSION_ADMIN_USER_INFO.sketch}
         </textarea>
     </div>
     <input type="button" value="修改" id="modify" class="layui-btn layui-btn-big layui-btn-normal"/>
 </form>
 </body>
-<jsp:include page="../../common/common.jsp"/>
+<jsp:include page="../common/common.jsp"/>
 <script>
     layui.use(['admin/user/edit', 'validate', 'validateRules']);
 </script>

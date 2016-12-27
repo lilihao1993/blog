@@ -2,8 +2,8 @@ package com.ldsh.blog.system.controller.admin;
 
 import com.ldsh.blog.common.bean.AjaxResponse;
 import com.ldsh.blog.common.constant.Constant;
-import com.ldsh.blog.system.model.User;
-import com.ldsh.blog.system.service.IUserService;
+import com.ldsh.blog.system.model.AdminUser;
+import com.ldsh.blog.system.service.IAdminUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 @RequestMapping("/admin/user")
-@SessionAttributes(Constant.SESSION_USER_INFO)
+@SessionAttributes(Constant.SESSION_ADMIN_USER_INFO)
 public class UserController {
 
     @Autowired
-    private IUserService userService;
+    private IAdminUserService userService;
 
 
     /**
@@ -38,13 +38,13 @@ public class UserController {
      * 描述：修改用户资料
      *
      * @param model 模型
-     * @param user  用户
+     * @param adminUser  用户
      * @return
      * @throws Exception
      */
     @ResponseBody
     @RequestMapping(value = "/modify", method = RequestMethod.POST)
-    public AjaxResponse<Boolean> modify(Model model, @ModelAttribute(Constant.SESSION_USER_INFO) User user) throws Exception {
-        return new AjaxResponse<>(userService.modifyUser(user));
+    public AjaxResponse<Boolean> modify(Model model, @ModelAttribute(Constant.SESSION_ADMIN_USER_INFO) AdminUser adminUser) throws Exception {
+        return new AjaxResponse<>(userService.modifyUser(adminUser));
     }
 }

@@ -2,7 +2,7 @@ package com.ldsh.blog.common.interceptor;
 
 import com.ldsh.blog.common.constant.Constant;
 import com.ldsh.blog.common.util.HttpUtils;
-import com.ldsh.blog.system.model.User;
+import com.ldsh.blog.system.model.AdminUser;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -27,9 +27,9 @@ public class AdminUserAuthorityInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response,
                              Object handler) throws Exception {
-        User user = (User) request.getSession().getAttribute(Constant.SESSION_USER_INFO);
+        AdminUser adminUser = (AdminUser) request.getSession().getAttribute(Constant.SESSION_ADMIN_USER_INFO);
         // 用户为空
-        if (user == null) {
+        if (adminUser == null) {
             if (HttpUtils.isAjax(request)) {
                 HttpUtils.writeError(response, Constant.LOGIN_ERROR_INFO, HttpStatus.UNAUTHORIZED.value());
             } else {

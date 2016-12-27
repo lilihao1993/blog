@@ -36,9 +36,9 @@
         <!-- mapper路径 -->
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.ldsh.blog.system.mapper"
                              targetProject="src/main/java"/>
-        <table tableName="blog_client_user" domainObjectName="ClientUser" schema="blog">
+        <table tableName="blog_label" domainObjectName="Label" schema="blog">
             <generatedKey column="id" sqlStatement="select replace(uuid(), '-', '')" type="pre"/>
-            <columnRenamingRule searchString="^BCU_" replaceString=""/>
+            <columnRenamingRule searchString="^BL_" replaceString=""/>
         </table>
     </context>
 </generatorConfiguration>

@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="topNavigate">
-    <ul class="layui-nav" style="float: right;margin-right: 40px">
+    <ul class="layui-nav other">
         <li class="layui-nav-item">
             <a href="javascript:;" id="user" js-userId="${SESSION_ADMIN_USER_INFO.id}">${SESSION_ADMIN_USER_INFO.userName}</a>
             <dl class="layui-nav-child">

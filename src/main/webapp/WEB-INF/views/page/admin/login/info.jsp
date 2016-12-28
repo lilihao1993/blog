@@ -77,7 +77,7 @@
             </fieldset>
         </div>
 </body>
-<jsp:include page="../../common/common.jsp"/>
+<jsp:include page="../common/common.jsp"/>
 <script>
     layui.use(['admin/login/info','validate', 'validateRules']);
 </script>

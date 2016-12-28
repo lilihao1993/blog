@@ -7,9 +7,8 @@
     <link rel="stylesheet" type="text/css" href="<c:url value='/js/lib/layui/css/layui.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/admin/login/register.css'/>">
 </head>
+<jsp:include page="../common/header.jsp"/>
 <body>
-    <form class="layui-form " id="js-form" action="/admin/login/register" method="post">
-        <div class="title">
             <b>用户注册</b>
         </div>
         <div class="errorInfo">
@@ -47,7 +46,6 @@
 
     </form>
 </body>
-<jsp:include page="../common/common.jsp"/>
 <script>
     layui.use(['admin/login/register', 'validate', 'validateRules']);
 </script>

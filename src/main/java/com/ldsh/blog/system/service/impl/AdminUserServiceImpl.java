@@ -32,7 +32,7 @@ public class AdminUserServiceImpl implements IAdminUserService {
      */
     @Override
     public boolean addUser(AdminUser adminUser) throws Exception {
-        EncryptUtils.encryptPassword(adminUser);
+        EncryptUtils.adminEncryptPassword(adminUser);
         adminUser.setCreateTime(new Date());
         adminUser.setOperateTime(adminUser.getCreateTime());
         return adminUserMapper.insert(adminUser) > 0 ? true : false;

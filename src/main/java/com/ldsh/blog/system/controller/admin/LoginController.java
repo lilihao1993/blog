@@ -92,8 +92,8 @@ public class LoginController {
     /**
      * 描述：用户登录
      *
-     * @param adminUser  用户对象
-     * @param model 模型
+     * @param adminUser 用户对象
+     * @param model     模型
      * @return
      * @throws Exception
      */

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/common/header.css'/>">
+<link rel="stylesheet" type="text/css" href="<c:url value='/js/lib/icon-awesome/css/font-awesome.min.css'/> ">
 <ul class="layui-nav header" lay-filter="header">
     <img src="<c:url value='/img/client/logo3.png'/>"/>
     <li class="layui-nav-item"><a href="">最新活动</a></li>
@@ -26,6 +27,17 @@
                 </span>
                 <a href="javascript:void(0);" class="log-out">退出 <i class="glyphicon glyphicon-log-out"></i></a>
             </div>
+
+            <%--<ul class="layui-nav other">--%>
+                <%--<li class="layui-nav-item">--%>
+                    <%--<a href="javascript:;" id="user" js-userId="${SESSION_CLIENT_USER_INFO.id}">${SESSION_CLIENT_USER_INFO.userName}</a>--%>
+                    <%--<dl class="layui-nav-child">--%>
+                        <%--<dd id="info"><a href="javascript:;"><i class="fa fa-user-circle" aria-hidden="true"></i> 个人信息</a></dd>--%>
+                        <%--<dd><a href="javascript:void(0);"><i class="fa fa-gear" aria-hidden="true"></i> 设置</a></dd>--%>
+                        <%--<dd><a href="javascript:void(0);" id="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a></dd>--%>
+                    <%--</dl>--%>
+                <%--</li>--%>
+            <%--</ul>--%>
         </c:if>
         <c:if test="${empty SESSION_CLIENT_USER_INFO}">
             <div class="login-info">

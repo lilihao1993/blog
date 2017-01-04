@@ -57,6 +57,11 @@ public class AjaxResponse<T> implements Serializable {
     public static final String ERROR_PASSWORD = "104";
 
     /**
+     * 验证码错误
+     */
+    public static final String ERROR_VERIFICATION_CODE = "105";
+
+    /**
      * 操作失败 .
      */
     public static final String ERROR_MSG = "操作失败";

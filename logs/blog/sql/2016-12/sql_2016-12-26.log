@@ -1,0 +1,45 @@
+2016-12-26 09:32:51,591 [qtp56204056-53] DEBUG com.ldsh.blog.system.mapper.UserMapper.selectByExample - ==>  Preparing: select ID, BU_USER_NAME, BU_PASSWORD, BU_NAME, BU_SEX, BU_ADDRESS, BU_DIRTHDAY, BU_MOBILE, BU_MAIL, BU_WECHAT, BU_SKETCH, BU_ENCRYPT_SALT, BU_CREATE_TIME, BU_OPERATE_TIME from blog_user WHERE ( BU_USER_NAME = ? ) 
+2016-12-26 09:32:51,755 [qtp56204056-53] DEBUG com.ldsh.blog.system.mapper.UserMapper.selectByExample - ==> Parameters: 论倾添(String)
+2016-12-26 09:32:51,809 [qtp56204056-53] DEBUG com.ldsh.blog.system.mapper.UserMapper.selectByExample - <==      Total: 1
+2016-12-26 09:32:56,395 [qtp56204056-62] DEBUG com.ldsh.blog.system.mapper.ResourceMapper.selectHomeResources - ==>  Preparing: SELECT a.BR_NAME ROOT_NAME,a.ID ROOT_ID ,b.ID,b.BR_NAME,b.BR_URL,b.BR_STATUS,b.BR_LEVEL,b.BR_PARENT_ID FROM blog_resource a LEFT JOIN blog_resource b ON a.ID = b.BR_PARENT_ID WHERE a.BR_LEVEL = 0 AND a.BR_STATUS = 0 
+2016-12-26 09:32:56,399 [qtp56204056-62] DEBUG com.ldsh.blog.system.mapper.ResourceMapper.selectHomeResources - ==> Parameters: 
+2016-12-26 09:32:56,472 [qtp56204056-62] DEBUG com.ldsh.blog.system.mapper.ResourceMapper.selectHomeResources - <==      Total: 6
+2016-12-26 09:32:57,974 [qtp56204056-52] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample_COUNT - ==>  Preparing: SELECT count(0) FROM blog_category 
+2016-12-26 09:32:57,975 [qtp56204056-52] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample_COUNT - ==> Parameters: 
+2016-12-26 09:32:58,033 [qtp56204056-52] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample_COUNT - <==      Total: 1
+2016-12-26 09:32:58,036 [qtp56204056-52] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample - ==>  Preparing: select ID, BC_NAME, BC_ORDER_NUMBER from blog_category order by BC_ORDER_NUMBER limit ? offset ? 
+2016-12-26 09:32:58,037 [qtp56204056-52] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample - ==> Parameters: 10(Integer), 0(Integer)
+2016-12-26 09:32:58,039 [qtp56204056-52] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample - <==      Total: 3
+2016-12-26 09:33:01,688 [qtp56204056-53] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.batchRemoveCategory - ==>  Preparing: DELETE FROM blog_category WHERE blog_category.ID in ( ? , ? ) 
+2016-12-26 09:33:01,689 [qtp56204056-53] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.batchRemoveCategory - ==> Parameters: 0d8deadcc7f911e6809afcaa14e16be9(String), 9fc923f8c7f811e6809afcaa14e16be9(String)
+2016-12-26 09:33:02,012 [qtp56204056-53] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.batchRemoveCategory - <==    Updates: 2
+2016-12-26 09:33:02,747 [qtp56204056-50] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample_COUNT - ==>  Preparing: SELECT count(0) FROM blog_category 
+2016-12-26 09:33:02,747 [qtp56204056-50] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample_COUNT - ==> Parameters: 
+2016-12-26 09:33:02,750 [qtp56204056-50] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample_COUNT - <==      Total: 1
+2016-12-26 09:33:02,754 [qtp56204056-50] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample - ==>  Preparing: select ID, BC_NAME, BC_ORDER_NUMBER from blog_category order by BC_ORDER_NUMBER limit ? offset ? 
+2016-12-26 09:33:02,754 [qtp56204056-50] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample - ==> Parameters: 10(Integer), 0(Integer)
+2016-12-26 09:33:02,758 [qtp56204056-50] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample - <==      Total: 1
+2016-12-26 09:33:09,448 [qtp56204056-53] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByPrimaryKey - ==>  Preparing: select ID, BC_NAME, BC_ORDER_NUMBER from blog_category where ID = ? 
+2016-12-26 09:33:09,449 [qtp56204056-53] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByPrimaryKey - ==> Parameters: 3939b327c73811e69b21fcaa14e16be9(String)
+2016-12-26 09:33:09,454 [qtp56204056-53] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByPrimaryKey - <==      Total: 1
+2016-12-26 09:33:09,458 [qtp56204056-53] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.updateByPrimaryKeySelective - ==>  Preparing: update blog_category SET BC_NAME = ?, BC_ORDER_NUMBER = ? where ID = ? 
+2016-12-26 09:33:09,459 [qtp56204056-53] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.updateByPrimaryKeySelective - ==> Parameters: 111(String), 1(Integer), 3939b327c73811e69b21fcaa14e16be9(String)
+2016-12-26 09:33:09,536 [qtp56204056-53] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.updateByPrimaryKeySelective - <==    Updates: 1
+2016-12-26 09:33:09,744 [qtp56204056-46] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample_COUNT - ==>  Preparing: SELECT count(0) FROM blog_category 
+2016-12-26 09:33:09,744 [qtp56204056-46] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample_COUNT - ==> Parameters: 
+2016-12-26 09:33:09,746 [qtp56204056-46] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample_COUNT - <==      Total: 1
+2016-12-26 09:33:09,748 [qtp56204056-46] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample - ==>  Preparing: select ID, BC_NAME, BC_ORDER_NUMBER from blog_category order by BC_ORDER_NUMBER limit ? offset ? 
+2016-12-26 09:33:09,748 [qtp56204056-46] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample - ==> Parameters: 10(Integer), 0(Integer)
+2016-12-26 09:33:09,750 [qtp56204056-46] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample - <==      Total: 1
+2016-12-26 09:33:38,294 [qtp56204056-51] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.insert!selectKey - ==>  Preparing: select replace(uuid(), '-', '') 
+2016-12-26 09:33:38,294 [qtp56204056-51] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.insert!selectKey - ==> Parameters: 
+2016-12-26 09:33:38,307 [qtp56204056-51] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.insert!selectKey - <==      Total: 1
+2016-12-26 09:33:38,308 [qtp56204056-51] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.insert - ==>  Preparing: insert into blog_category (ID, BC_NAME, BC_ORDER_NUMBER ) values (?, ?, ? ) 
+2016-12-26 09:33:38,309 [qtp56204056-51] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.insert - ==> Parameters: 53351995cb0b11e69689fcaa14e16be9(String), 中山岛(String), 2(Integer)
+2016-12-26 09:33:38,380 [qtp56204056-51] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.insert - <==    Updates: 1
+2016-12-26 09:33:38,588 [qtp56204056-62] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample_COUNT - ==>  Preparing: SELECT count(0) FROM blog_category 
+2016-12-26 09:33:38,588 [qtp56204056-62] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample_COUNT - ==> Parameters: 
+2016-12-26 09:33:38,589 [qtp56204056-62] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample_COUNT - <==      Total: 1
+2016-12-26 09:33:38,595 [qtp56204056-62] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample - ==>  Preparing: select ID, BC_NAME, BC_ORDER_NUMBER from blog_category order by BC_ORDER_NUMBER limit ? offset ? 
+2016-12-26 09:33:38,595 [qtp56204056-62] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample - ==> Parameters: 10(Integer), 0(Integer)
+2016-12-26 09:33:38,598 [qtp56204056-62] DEBUG com.ldsh.blog.system.mapper.CategoryMapper.selectByExample - <==      Total: 2

@@ -4,7 +4,7 @@
     height: 600px;
 }
 
-.login-mod {
+.register-mod {
     height: 400px;
     width: 400px;
     /*margin-left: 200px;*/
@@ -35,18 +35,23 @@
     margin-bottom: 10px;
 }
 
-.login {
+.register {
     margin-top: 10px;
-    margin-right: 70px;
+    margin-right: 60px;
+
 }
 
-.login input {
-    margin-right: 10px;
+.register input {
+    width: 120px;
 }
 
+.yzm{
+    margin-left: 40px;
+}
 .errorInfo{
     color: red;
 }
+
 
 
 

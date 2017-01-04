@@ -19,6 +19,22 @@
                                 expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
 
+    <bean id="captchaService"
+          class="com.octo.captcha.service.multitype.GenericManageableCaptchaService">
+        <description>验证码服务</description>
+        <constructor-arg index="0">
+            <ref bean="com.someabcd.csr.web.crsCaptchaEngine" />
+        </constructor-arg>
+        <constructor-arg index="1">
+            <value>300</value>
+        </constructor-arg><!--超时时间 秒 -->
+        <constructor-arg index="2">
+            <value>20000</value>
+        </constructor-arg><!--最大并发数 -->
+        <constructor-arg index="3">
+            <value>20000</value>
+        </constructor-arg>
+    </bean>
 
     <!-- 通用session工厂配置 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

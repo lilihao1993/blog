@@ -15,17 +15,16 @@
             <dd><a href="">电商平台</a></dd>
         </dl>
     </li>
-
+    icon-user
     <li class="layui-nav-item"><a href="">社区</a></li>
     <div id="right" class="right">
         <c:if test="${!empty SESSION_CLIENT_USER_INFO}">
             <div class="login-after login-info">
                 <span class="user-name">
-                    <img src="<c:url value='/img/user/avatar.png'/> " class="avatar" alt="">
-
+                    <img src="<c:url value='/img/client/user.ico'/> " class="avatar" alt="">
                     <a href="javascript:void(0);">${SESSION_CLIENT_USER_INFO.userName}</a>
                 </span>
-                <a href="javascript:void(0);" class="log-out">退出 <i class="glyphicon glyphicon-log-out"></i></a>
+                <a href="javascript:void(0);"  class="log-out js-out">退出 <i class="glyphicon glyphicon-log-out"></i></a>
             </div>
 
             <%--<ul class="layui-nav other">--%>
@@ -40,7 +39,7 @@
             <%--</ul>--%>
         </c:if>
         <c:if test="${empty SESSION_CLIENT_USER_INFO}">
-            <div class="login-info">
+            <div class="login-after" >
                     <a href="/client/login/page" class="layui-btn royalblue">登录</a>
                     <a href="/client/login/toregister" class="layui-btn royalblue">注册</a>
             </div>
@@ -48,3 +47,6 @@
     </div>
 </ul>
 <jsp:include page="../common/common.jsp"/>
+<script>
+    layui.use(['client/common/header', 'validate', 'validateRules']);
+</script>

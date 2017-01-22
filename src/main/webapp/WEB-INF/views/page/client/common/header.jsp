@@ -4,8 +4,11 @@
 <link rel="stylesheet" type="text/css" href="<c:url value='/js/lib/icon-awesome/css/font-awesome.min.css'/> ">
 <ul class="layui-nav header" lay-filter="header">
     <img src="<c:url value='/img/client/logo3.png'/>"/>
-    <li class="layui-nav-item"><a href="">最新活动</a></li>
-    <li class="layui-nav-item layui-this"><a href="">产品</a></li>
+    <li class="layui-nav-item <c:if test="${cur == home}">layui-this</c:if>">
+        <a href="">首页</a>
+    </li>
+
+    <li class="layui-nav-item "><a href="">产品</a></li>
     <li class="layui-nav-item"><a href="">大数据</a></li>
     <li class="layui-nav-item">
         <a href="javascript:;">解决方案</a>

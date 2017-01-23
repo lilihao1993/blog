@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * 描述：用户控制器
  */
-@Controller
+@Controller("adminUserController")
 @RequestMapping("/admin/user")
 @SessionAttributes(Constant.SESSION_ADMIN_USER_INFO)
 public class UserController {

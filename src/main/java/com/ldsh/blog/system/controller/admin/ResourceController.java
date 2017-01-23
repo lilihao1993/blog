@@ -19,7 +19,7 @@ import java.util.Map;
 /**
  * 描述：资源控制器
  */
-@Controller
+@Controller("adminResourceController")
 @RequestMapping("/admin/resource")
 public class ResourceController {
 

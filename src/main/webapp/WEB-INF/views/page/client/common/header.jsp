@@ -25,7 +25,7 @@
             <div class="login-after login-info">
                 <span class="user-name">
                     <img src="<c:url value='/img/client/user.ico'/> " class="avatar" alt="">
-                    <a href="javascript:void(0);">${SESSION_CLIENT_USER_INFO.userName}</a>
+                    <a href="/client/user/edit">${SESSION_CLIENT_USER_INFO.userName}</a>
                 </span>
                 <a href="javascript:void(0);"  class="log-out js-out">退出 <i class="glyphicon glyphicon-log-out"></i></a>
             </div>

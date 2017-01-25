@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 /**
  * 字符串工具类
  */
-public class StringUtils extends org.springframework.util.StringUtils{
+public class StringUtils extends org.springframework.util.StringUtils {
 
     /**
      * 数组转成字符串
@@ -32,6 +32,25 @@ public class StringUtils extends org.springframework.util.StringUtils{
             }
         }
         return returnStrValue;
+    }
+
+    /**
+     * 描述：拼接字符串
+     *
+     * @param strParam
+     * @return
+     */
+    public static String assemblyString(String... strParam) {
+        StringBuffer stringBuffer = new StringBuffer();
+        String[] arr$ = strParam;
+        int len$ = strParam.length;
+
+        for (int i$ = 0; i$ < len$; ++i$) {
+            String string = arr$[i$];
+            stringBuffer.append(string);
+        }
+
+        return stringBuffer.toString();
     }
 
     /**

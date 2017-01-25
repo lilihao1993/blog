@@ -50,4 +50,27 @@ public class UserController {
     public AjaxResponse<Boolean> modify(Model model, @ModelAttribute(Constant.SESSION_CLIENT_ADMIN_USER_INFO) ClientUser clientUser) throws Exception {
         return new AjaxResponse<>(clientUserService.modifyUser(clientUser));
     }
+
+
+    /**
+     * 描述：测试
+     *
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/editor", method = RequestMethod.GET)
+    public String editor() throws Exception {
+        return "client/user/editor";
+    }
+
+    /**
+     * 描述：跳转到笔记编辑页
+     *
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/note", method = RequestMethod.GET)
+    public String noteEditor() throws Exception {
+        return "client/user/noteEditor";
+    }
 }

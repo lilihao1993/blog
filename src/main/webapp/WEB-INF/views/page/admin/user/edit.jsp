@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/admin/user/edit.css'/>">
 </head>
 <body>
-<form class="layui-form" method="post">
+<form class="layui-form">
     <div class="layui-form-item" >
         <label class="layui-form-label">用户名：</label>
         <div class="layui-input-block">

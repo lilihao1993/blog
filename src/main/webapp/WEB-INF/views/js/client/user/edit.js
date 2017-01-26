@@ -14,7 +14,7 @@ layui.define(['layer', 'form', 'element', 'laydate', 'validate'], function (expo
 
 
 function _modify() {
-    console.log( $('.layui-form').serialize());
+    console.log($('.layui-form').serialize());
     $("#modify").click(function () {
         $.ajax({
             url: "/client/user/modify",
@@ -22,8 +22,8 @@ function _modify() {
             data: $('.layui-form').serialize(),
             success: function (data) {
                 if (data) {
-                    parent.layer.alert("保存成功", {icon: 0, time: 500}, function () {
-                        location.reload();
+                    parent.layer.msg("保存成功", {icon: 0, time: 500}, function () {
+                        top.location = "/client/user/info";
                     });
                 }
             }, error: function (jqXHR) {
@@ -34,3 +34,4 @@ function _modify() {
     });
 
 }
+

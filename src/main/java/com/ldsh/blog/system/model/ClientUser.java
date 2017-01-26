@@ -1,112 +1,133 @@
 package com.ldsh.blog.system.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class ClientUser {
     /**
      * 唯一标识, 所属表字段为blog_client_user.ID
+     *
      * @mbggenerated
      */
     private String id;
 
     /**
      * 用户名, 所属表字段为blog_client_user.BCU_USER_NAME
+     *
      * @mbggenerated
      */
     private String userName;
 
     /**
      * 密码, 所属表字段为blog_client_user.BCU_PASSWORD
+     *
      * @mbggenerated
      */
     private String password;
 
     /**
      * 姓名, 所属表字段为blog_client_user.BCU_NAME
+     *
      * @mbggenerated
      */
     private String name;
 
     /**
      * 性别(0:女 1:男), 所属表字段为blog_client_user.BCU_SEX
+     *
      * @mbggenerated
      */
     private String sex;
 
     /**
      * 地址, 所属表字段为blog_client_user.BCU_ADDRESS
+     *
      * @mbggenerated
      */
     private String address;
 
     /**
      * 生日, 所属表字段为blog_client_user.BCU_DIRTHDAY
+     *
      * @mbggenerated
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dirthday;
 
     /**
      * 手机号, 所属表字段为blog_client_user.BCU_MOBILE
+     *
      * @mbggenerated
      */
     private String mobile;
 
     /**
      * 邮箱, 所属表字段为blog_client_user.BCU_MAIL
+     *
      * @mbggenerated
      */
     private String mail;
 
     /**
      * 微信号, 所属表字段为blog_client_user.BCU_WECHAT
+     *
      * @mbggenerated
      */
     private String wechat;
 
     /**
      * 用户状态（0：正常，1：锁定）, 所属表字段为blog_client_user.BCU_STATUS
+     *
      * @mbggenerated
      */
     private String status;
 
     /**
      * 描述, 所属表字段为blog_client_user.BCU_SKETCH
+     *
      * @mbggenerated
      */
     private String sketch;
 
     /**
      * 加盐值, 所属表字段为blog_client_user.BCU_ENCRYPT_SALT
+     *
      * @mbggenerated
      */
     private String encryptSalt;
 
     /**
      * 创建时间, 所属表字段为blog_client_user.BCU_CREATE_TIME
+     *
      * @mbggenerated
      */
     private Date createTime;
 
     /**
      * 操作时间, 所属表字段为blog_client_user.BCU_OPERATE_TIME
+     *
      * @mbggenerated
      */
     private Date operateTime;
 
     /**
      * 激活时间, 所属表字段为blog_client_user.BCU_ACTIVATE_TIME
+     *
      * @mbggenerated
      */
     private Date activateTime;
 
     /**
      * 密码修改时间, 所属表字段为blog_client_user.BCU_PASSWORD_MODIFY_TIME
+     *
      * @mbggenerated
      */
     private Date passwordModifyTime;
 
     /**
      * 返回列值： blog_client_user.ID
+     *
      * @mbggenerated
      */
     public String getId() {
@@ -115,6 +136,7 @@ public class ClientUser {
 
     /**
      * 设置列值：blog_client_user.ID
+     *
      * @mbggenerated
      */
     public void setId(String id) {
@@ -123,6 +145,7 @@ public class ClientUser {
 
     /**
      * 返回列值： blog_client_user.BCU_USER_NAME
+     *
      * @mbggenerated
      */
     public String getUserName() {
@@ -131,6 +154,7 @@ public class ClientUser {
 
     /**
      * 设置列值：blog_client_user.BCU_USER_NAME
+     *
      * @mbggenerated
      */
     public void setUserName(String userName) {
@@ -139,6 +163,7 @@ public class ClientUser {
 
     /**
      * 返回列值： blog_client_user.BCU_PASSWORD
+     *
      * @mbggenerated
      */
     public String getPassword() {
@@ -147,6 +172,7 @@ public class ClientUser {
 
     /**
      * 设置列值：blog_client_user.BCU_PASSWORD
+     *
      * @mbggenerated
      */
     public void setPassword(String password) {
@@ -155,6 +181,7 @@ public class ClientUser {
 
     /**
      * 返回列值： blog_client_user.BCU_NAME
+     *
      * @mbggenerated
      */
     public String getName() {
@@ -163,6 +190,7 @@ public class ClientUser {
 
     /**
      * 设置列值：blog_client_user.BCU_NAME
+     *
      * @mbggenerated
      */
     public void setName(String name) {
@@ -171,6 +199,7 @@ public class ClientUser {
 
     /**
      * 返回列值： blog_client_user.BCU_SEX
+     *
      * @mbggenerated
      */
     public String getSex() {
@@ -179,6 +208,7 @@ public class ClientUser {
 
     /**
      * 设置列值：blog_client_user.BCU_SEX
+     *
      * @mbggenerated
      */
     public void setSex(String sex) {
@@ -187,6 +217,7 @@ public class ClientUser {
 
     /**
      * 返回列值： blog_client_user.BCU_ADDRESS
+     *
      * @mbggenerated
      */
     public String getAddress() {
@@ -195,6 +226,7 @@ public class ClientUser {
 
     /**
      * 设置列值：blog_client_user.BCU_ADDRESS
+     *
      * @mbggenerated
      */
     public void setAddress(String address) {
@@ -203,6 +235,7 @@ public class ClientUser {
 
     /**
      * 返回列值： blog_client_user.BCU_DIRTHDAY
+     *
      * @mbggenerated
      */
     public Date getDirthday() {
@@ -211,6 +244,7 @@ public class ClientUser {
 
     /**
      * 设置列值：blog_client_user.BCU_DIRTHDAY
+     *
      * @mbggenerated
      */
     public void setDirthday(Date dirthday) {
@@ -219,6 +253,7 @@ public class ClientUser {
 
     /**
      * 返回列值： blog_client_user.BCU_MOBILE
+     *
      * @mbggenerated
      */
     public String getMobile() {
@@ -227,6 +262,7 @@ public class ClientUser {
 
     /**
      * 设置列值：blog_client_user.BCU_MOBILE
+     *
      * @mbggenerated
      */
     public void setMobile(String mobile) {
@@ -235,6 +271,7 @@ public class ClientUser {
 
     /**
      * 返回列值： blog_client_user.BCU_MAIL
+     *
      * @mbggenerated
      */
     public String getMail() {
@@ -243,6 +280,7 @@ public class ClientUser {
 
     /**
      * 设置列值：blog_client_user.BCU_MAIL
+     *
      * @mbggenerated
      */
     public void setMail(String mail) {
@@ -251,6 +289,7 @@ public class ClientUser {
 
     /**
      * 返回列值： blog_client_user.BCU_WECHAT
+     *
      * @mbggenerated
      */
     public String getWechat() {
@@ -259,6 +298,7 @@ public class ClientUser {
 
     /**
      * 设置列值：blog_client_user.BCU_WECHAT
+     *
      * @mbggenerated
      */
     public void setWechat(String wechat) {
@@ -267,6 +307,7 @@ public class ClientUser {
 
     /**
      * 返回列值： blog_client_user.BCU_STATUS
+     *
      * @mbggenerated
      */
     public String getStatus() {
@@ -275,6 +316,7 @@ public class ClientUser {
 
     /**
      * 设置列值：blog_client_user.BCU_STATUS
+     *
      * @mbggenerated
      */
     public void setStatus(String status) {
@@ -283,6 +325,7 @@ public class ClientUser {
 
     /**
      * 返回列值： blog_client_user.BCU_SKETCH
+     *
      * @mbggenerated
      */
     public String getSketch() {
@@ -291,6 +334,7 @@ public class ClientUser {
 
     /**
      * 设置列值：blog_client_user.BCU_SKETCH
+     *
      * @mbggenerated
      */
     public void setSketch(String sketch) {
@@ -299,6 +343,7 @@ public class ClientUser {
 
     /**
      * 返回列值： blog_client_user.BCU_ENCRYPT_SALT
+     *
      * @mbggenerated
      */
     public String getEncryptSalt() {
@@ -307,6 +352,7 @@ public class ClientUser {
 
     /**
      * 设置列值：blog_client_user.BCU_ENCRYPT_SALT
+     *
      * @mbggenerated
      */
     public void setEncryptSalt(String encryptSalt) {
@@ -315,6 +361,7 @@ public class ClientUser {
 
     /**
      * 返回列值： blog_client_user.BCU_CREATE_TIME
+     *
      * @mbggenerated
      */
     public Date getCreateTime() {
@@ -323,6 +370,7 @@ public class ClientUser {
 
     /**
      * 设置列值：blog_client_user.BCU_CREATE_TIME
+     *
      * @mbggenerated
      */
     public void setCreateTime(Date createTime) {
@@ -331,6 +379,7 @@ public class ClientUser {
 
     /**
      * 返回列值： blog_client_user.BCU_OPERATE_TIME
+     *
      * @mbggenerated
      */
     public Date getOperateTime() {
@@ -339,6 +388,7 @@ public class ClientUser {
 
     /**
      * 设置列值：blog_client_user.BCU_OPERATE_TIME
+     *
      * @mbggenerated
      */
     public void setOperateTime(Date operateTime) {
@@ -347,6 +397,7 @@ public class ClientUser {
 
     /**
      * 返回列值： blog_client_user.BCU_ACTIVATE_TIME
+     *
      * @mbggenerated
      */
     public Date getActivateTime() {
@@ -355,6 +406,7 @@ public class ClientUser {
 
     /**
      * 设置列值：blog_client_user.BCU_ACTIVATE_TIME
+     *
      * @mbggenerated
      */
     public void setActivateTime(Date activateTime) {
@@ -363,6 +415,7 @@ public class ClientUser {
 
     /**
      * 返回列值： blog_client_user.BCU_PASSWORD_MODIFY_TIME
+     *
      * @mbggenerated
      */
     public Date getPasswordModifyTime() {
@@ -371,6 +424,7 @@ public class ClientUser {
 
     /**
      * 设置列值：blog_client_user.BCU_PASSWORD_MODIFY_TIME
+     *
      * @mbggenerated
      */
     public void setPasswordModifyTime(Date passwordModifyTime) {

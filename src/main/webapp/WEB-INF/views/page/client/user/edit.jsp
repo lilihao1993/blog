@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/client/user/edit.css'/>">
 </head>
 <body>
-    <form class="layui-form" method="post">
+    <form class="layui-form">
         <div class="layui-form-item" >
             <label class="layui-form-label">用户名：</label>
             <div class="layui-input-block">
@@ -64,9 +64,9 @@
             </div>
         </div>
         <div class="layui-form-item">
-        <textarea name="sketch" required lay-verify="sketch" lay-verify="required" placeholder="想说的话" class="layui-textarea">
-            ${SESSION_CLIENT_USER_INFO.sketch}
-        </textarea>
+            <textarea name="sketch" placeholder="想说的话" required lay-verify="sketch" lay-verify="required"  class="layui-textarea">
+               ${SESSION_CLIENT_USER_INFO.sketch}
+            </textarea>
         </div>
         <input type="button" value="修改" id="modify" class="layui-btn layui-btn-big layui-btn-normal"/>
     </form>

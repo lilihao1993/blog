@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller("clientUserController")
 @RequestMapping("/client/user")
-@SessionAttributes(Constant.SESSION_CLIENT_ADMIN_USER_INFO)
+@SessionAttributes(Constant.SESSION_CLIENT_USER_INFO)
 public class UserController {
 
 
@@ -32,6 +32,17 @@ public class UserController {
      * @return
      * @throws Exception
      */
+    @RequestMapping(value = "/info", method = RequestMethod.GET)
+    public String info() throws Exception {
+        return "client/user/info";
+    }
+
+    /**
+     * 描述：跳转到资源修改页
+     *
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public String edit() throws Exception {
         return "client/user/edit";
@@ -40,14 +51,13 @@ public class UserController {
     /**
      * 描述：修改用户资料
      *
-     * @param model      模型
      * @param clientUser 用户
      * @return
      * @throws Exception
      */
     @ResponseBody
     @RequestMapping(value = "/modify", method = RequestMethod.POST)
-    public AjaxResponse<Boolean> modify(Model model, @ModelAttribute(Constant.SESSION_CLIENT_ADMIN_USER_INFO) ClientUser clientUser) throws Exception {
+    public AjaxResponse<Boolean> modify(@ModelAttribute(Constant.SESSION_CLIENT_USER_INFO) ClientUser clientUser) throws Exception {
         return new AjaxResponse<>(clientUserService.modifyUser(clientUser));
     }
 

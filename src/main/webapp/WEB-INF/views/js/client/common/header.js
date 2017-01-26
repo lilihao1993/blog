@@ -16,7 +16,7 @@ layui.define(['layer', 'form', 'element', 'validate'], function (exports) {
 function signOut() {
 
     $(".js-out").click(function () {
-        layer.confirm("确认退出？", {icon: 3}, function () {
+        layer.confirm("确认退出？", {icon: 3 }, function () {
             top.location = "/client/login/logout";
         });
     });

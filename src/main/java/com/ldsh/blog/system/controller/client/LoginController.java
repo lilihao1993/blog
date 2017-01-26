@@ -24,7 +24,7 @@ import java.util.List;
  */
 @Controller("clientLoginController")
 @RequestMapping("/client/login/")
-@SessionAttributes(Constant.SESSION_CLIENT_ADMIN_USER_INFO)
+@SessionAttributes(Constant.SESSION_CLIENT_USER_INFO)
 public class LoginController {
 
     /**
@@ -120,7 +120,7 @@ public class LoginController {
         }
 
         //4.将其对象存入session
-        model.addAttribute(Constant.SESSION_CLIENT_ADMIN_USER_INFO, userList.get(0));
+        model.addAttribute(Constant.SESSION_CLIENT_USER_INFO, userList.get(0));
         return new AjaxResponse<>(true);
     }
 

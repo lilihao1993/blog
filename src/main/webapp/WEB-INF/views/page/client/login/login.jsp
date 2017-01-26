@@ -20,7 +20,7 @@
                     <%--<label class="layui-form-label"><i class="fa fa-address-card" style="height: 20px"></i></label>--%>
                     <label class="layui-form-label"><i class="fa fa-address-card" style="height: 20px"></i></label>
                     <div class="layui-input-inline">
-                        <input type="username" name="userName" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
+                        <input type="username" name="userName" placeholder="请输入姓名" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">

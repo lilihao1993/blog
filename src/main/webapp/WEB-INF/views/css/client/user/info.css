@@ -1,0 +1,22 @@
+.fa-edit {
+    color: #a6a9ac;
+    /*margin-left: 1000px;*/
+    float: right;
+    /*margin-bottom: 40px;*/
+    /*padding-top: 10px;*/
+    visibility: hidden;
+}
+.layui-elem-field:hover .fa-edit {
+    visibility: visible;
+    cursor: pointer;
+}
+
+#show {
+    margin: 10px;
+}
+
+
+
+.layui-form{
+    display: none;
+}

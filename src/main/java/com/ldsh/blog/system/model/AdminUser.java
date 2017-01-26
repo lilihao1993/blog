@@ -1,5 +1,7 @@
 package com.ldsh.blog.system.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class AdminUser {
@@ -43,6 +45,7 @@ public class AdminUser {
      * 生日, 所属表字段为blog_admin_user.BAU_DIRTHDAY
      * @mbggenerated
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date dirthday;
 
     /**

@@ -139,6 +139,8 @@ function _add() {
                         if (data.data) {
                             parent.layer.close(index);
                         }
+                        //保存后刷新
+                        location.reload();
                     }, error: function (jqXHR) {
                         parent.layer.alert('操作失败，请重试');
                     }
@@ -146,10 +148,6 @@ function _add() {
             },
             cancel: function (index) {
                 layer.close(index);
-            },
-            end: function () {
-                //销毁后刷新
-                location.reload();
             }
         });
     });
@@ -188,6 +186,8 @@ function _modify() {
                         if (data.data) {
                             parent.layer.close(index);
                         }
+                        //修改后刷新
+                        location.reload();
                     }, error: function (jqXHR) {
                         parent.layer.alert('操作失败，请重试');
                     }
@@ -195,10 +195,6 @@ function _modify() {
             },
             cancel: function (index) {
                 layer.close(index);
-            },
-            end: function () {
-                //销毁后刷新
-                location.reload();
             }
         });
     })

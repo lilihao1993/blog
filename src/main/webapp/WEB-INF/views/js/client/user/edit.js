@@ -5,13 +5,19 @@ layui.define(['layer', 'form', 'element', 'laydate', 'validate'], function (expo
     var layer = layui.layer,
         element = layui.element(),
         form = layui.form();
-
-
+    init();
     //修改个人资料
     _modify();
     exports('client/user/edit', {});
 });
 
+
+/**
+ * 初始化
+ */
+function init() {
+    $("#sketch").val($("#sketch").val().trim());
+}
 
 function _modify() {
     console.log($('.layui-form').serialize());
@@ -23,7 +29,8 @@ function _modify() {
             success: function (data) {
                 if (data) {
                     parent.layer.msg("保存成功", {icon: 0, time: 500}, function () {
-                        top.location = "/client/user/info";
+                        parent.layer.closeAll();
+                        parent.location.reload();
                     });
                 }
             }, error: function (jqXHR) {

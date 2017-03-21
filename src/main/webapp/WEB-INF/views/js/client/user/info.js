@@ -26,9 +26,9 @@ function _editInfo() {
     $("#edit").click(function () {
         layer.open({
             type: 2,
-            title: false,
+            // title: "修改信息",
             closeBtn: 0,
-            area: ['50%', '80%'],
+            area: ['50%', '100%'],
             shadeClose: true,
             // skin: 'yourclass',
             content: "/client/user/edit"
@@ -36,3 +36,4 @@ function _editInfo() {
 
     });
 }
+

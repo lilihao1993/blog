@@ -64,7 +64,7 @@
             </div>
         </div>
         <div class="layui-form-item">
-            <textarea name="sketch" placeholder="想说的话" required lay-verify="sketch" lay-verify="required"  class="layui-textarea">
+            <textarea name="sketch" placeholder="想说的话" id="sketch" required lay-verify="sketch" lay-verify="required"  class="layui-textarea">
                ${SESSION_CLIENT_USER_INFO.sketch}
             </textarea>
         </div>

@@ -83,6 +83,7 @@ function _iframeAdaption() {
  * @private
  */
 function _alertInfo() {
+
     $("#info").click(function () {
         layer.open({
             type: 2,

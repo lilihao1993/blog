@@ -20,14 +20,14 @@
         <div class="layui-form-item">
             <label class="layui-form-label">用户名:</label>
             <div class="layui-input-block">
-                <input type="text" name="userName" placeholder="请输入用户名" autocomplete="off"
+                <input type="text" name="userName" placeholder="请输入用户名" value="论倾添" autocomplete="off"
                        class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">密码:</label>
             <div class="layui-input-block">
-                <input type="password" name="password" placeholder="请输入密码"
+                <input type="password" name="password" value="llh1993824" placeholder="请输入密码"
                        autocomplete="off" class="layui-input">
             </div>
         </div>

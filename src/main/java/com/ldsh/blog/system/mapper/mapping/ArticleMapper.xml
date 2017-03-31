@@ -1,420 +1,486 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ldsh.blog.system.mapper.ArticleMapper" >
-  <resultMap id="BaseResultMap" type="com.ldsh.blog.system.model.Article" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    <id column="ID" property="id" jdbcType="VARCHAR" />
-    <result column="BA_LABEL_ID" property="labelId" jdbcType="VARCHAR" />
-    <result column="BA_USER_ID" property="userId" jdbcType="VARCHAR" />
-    <result column="BA_CATEGORY_ID" property="categoryId" jdbcType="VARCHAR" />
-    <result column="BA_TITLE" property="title" jdbcType="VARCHAR" />
-    <result column="BA_SUMMARY" property="summary" jdbcType="VARCHAR" />
-    <result column="BA_STATUS" property="status" jdbcType="CHAR" />
-    <result column="BA_HOT" property="hot" jdbcType="CHAR" />
-    <result column="BA_CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="BA_OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.ldsh.blog.system.model.Article" extends="BaseResultMap" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    <result column="BA_CONTENT" property="content" jdbcType="LONGVARCHAR" />
-  </resultMap>
-  <sql id="Example_Where_Clause" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+<mapper namespace="com.ldsh.blog.system.mapper.ArticleMapper">
+    <resultMap id="BaseResultMap" type="com.ldsh.blog.system.model.Article">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        <id column="ID" property="id" jdbcType="VARCHAR"/>
+        <result column="BA_LABEL_ID" property="labelId" jdbcType="VARCHAR"/>
+        <result column="BA_USER_ID" property="userId" jdbcType="VARCHAR"/>
+        <result column="BA_CATEGORY_ID" property="categoryId" jdbcType="VARCHAR"/>
+        <result column="BA_TITLE" property="title" jdbcType="VARCHAR"/>
+        <result column="BA_SUMMARY" property="summary" jdbcType="VARCHAR"/>
+        <result column="BA_STATUS" property="status" jdbcType="CHAR"/>
+        <result column="BA_HOT" property="hot" jdbcType="CHAR"/>
+        <result column="BA_CREATE_TIME" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="BA_OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <resultMap id="ResultMapWithBLOBs" type="com.ldsh.blog.system.model.Article" extends="BaseResultMap">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        <result column="BA_CONTENT" property="content" jdbcType="LONGVARCHAR"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    <where >
-      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        ID, BA_LABEL_ID, BA_USER_ID, BA_CATEGORY_ID, BA_TITLE, BA_SUMMARY, BA_STATUS, BA_HOT,
+        BA_CREATE_TIME, BA_OPERATE_TIME
+    </sql>
+    <sql id="Blob_Column_List">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        BA_CONTENT
+    </sql>
+    <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs"
+            parameterType="com.ldsh.blog.system.model.ArticleExample">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        select
+        <if test="distinct">
+            distinct
         </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    ID, BA_LABEL_ID, BA_USER_ID, BA_CATEGORY_ID, BA_TITLE, BA_SUMMARY, BA_STATUS, BA_HOT, 
-    BA_CREATE_TIME, BA_OPERATE_TIME
-  </sql>
-  <sql id="Blob_Column_List" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    BA_CONTENT
-  </sql>
-  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.ldsh.blog.system.model.ArticleExample" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    select
-    <if test="distinct" >
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from blog_article
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ldsh.blog.system.model.ArticleExample" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    select
-    <if test="distinct" >
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from blog_article
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from blog_article
-    where ID = #{id,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    delete from blog_article
-    where ID = #{id,jdbcType=VARCHAR}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.ldsh.blog.system.model.ArticleExample" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    delete from blog_article
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.ldsh.blog.system.model.Article" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    <selectKey resultType="java.lang.String" keyProperty="id" order="BEFORE" >
-      select replace(uuid(), '-', '')
-    </selectKey>
-    insert into blog_article (ID, BA_LABEL_ID, BA_USER_ID, 
-      BA_CATEGORY_ID, BA_TITLE, BA_SUMMARY, 
-      BA_STATUS, BA_HOT, BA_CREATE_TIME, 
-      BA_OPERATE_TIME, BA_CONTENT)
-    values (#{id,jdbcType=VARCHAR}, #{labelId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
-      #{categoryId,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, 
-      #{status,jdbcType=CHAR}, #{hot,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{operateTime,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.ldsh.blog.system.model.Article" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    <selectKey resultType="java.lang.String" keyProperty="id" order="BEFORE" >
-      select replace(uuid(), '-', '')
-    </selectKey>
-    insert into blog_article
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      ID,
-      <if test="labelId != null" >
-        BA_LABEL_ID,
-      </if>
-      <if test="userId != null" >
-        BA_USER_ID,
-      </if>
-      <if test="categoryId != null" >
-        BA_CATEGORY_ID,
-      </if>
-      <if test="title != null" >
-        BA_TITLE,
-      </if>
-      <if test="summary != null" >
-        BA_SUMMARY,
-      </if>
-      <if test="status != null" >
-        BA_STATUS,
-      </if>
-      <if test="hot != null" >
-        BA_HOT,
-      </if>
-      <if test="createTime != null" >
-        BA_CREATE_TIME,
-      </if>
-      <if test="operateTime != null" >
-        BA_OPERATE_TIME,
-      </if>
-      <if test="content != null" >
-        BA_CONTENT,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      #{id,jdbcType=VARCHAR},
-      <if test="labelId != null" >
-        #{labelId,jdbcType=VARCHAR},
-      </if>
-      <if test="userId != null" >
-        #{userId,jdbcType=VARCHAR},
-      </if>
-      <if test="categoryId != null" >
-        #{categoryId,jdbcType=VARCHAR},
-      </if>
-      <if test="title != null" >
-        #{title,jdbcType=VARCHAR},
-      </if>
-      <if test="summary != null" >
-        #{summary,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null" >
-        #{status,jdbcType=CHAR},
-      </if>
-      <if test="hot != null" >
-        #{hot,jdbcType=CHAR},
-      </if>
-      <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="operateTime != null" >
-        #{operateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="content != null" >
-        #{content,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.ldsh.blog.system.model.ArticleExample" resultType="java.lang.Integer" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    select count(*) from blog_article
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    update blog_article
-    <set >
-      <if test="record.id != null" >
-        ID = #{record.id,jdbcType=VARCHAR},
-      </if>
-      <if test="record.labelId != null" >
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from blog_article
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ldsh.blog.system.model.ArticleExample">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from blog_article
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from blog_article
+        where ID = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        delete from blog_article
+        where ID = #{id,jdbcType=VARCHAR}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.ldsh.blog.system.model.ArticleExample">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        delete from blog_article
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.ldsh.blog.system.model.Article">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        <selectKey resultType="java.lang.String" keyProperty="id" order="BEFORE">
+            select replace(uuid(), '-', '')
+        </selectKey>
+        insert into blog_article (ID, BA_LABEL_ID, BA_USER_ID,
+        BA_CATEGORY_ID, BA_TITLE, BA_SUMMARY,
+        BA_STATUS, BA_HOT, BA_CREATE_TIME,
+        BA_OPERATE_TIME, BA_CONTENT)
+        values (#{id,jdbcType=VARCHAR}, #{labelId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR},
+        #{categoryId,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR},
+        #{status,jdbcType=CHAR}, #{hot,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP},
+        #{operateTime,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.ldsh.blog.system.model.Article">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        <selectKey resultType="java.lang.String" keyProperty="id" order="BEFORE">
+            select replace(uuid(), '-', '')
+        </selectKey>
+        insert into blog_article
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            ID,
+            <if test="labelId != null">
+                BA_LABEL_ID,
+            </if>
+            <if test="userId != null">
+                BA_USER_ID,
+            </if>
+            <if test="categoryId != null">
+                BA_CATEGORY_ID,
+            </if>
+            <if test="title != null">
+                BA_TITLE,
+            </if>
+            <if test="summary != null">
+                BA_SUMMARY,
+            </if>
+            <if test="status != null">
+                BA_STATUS,
+            </if>
+            <if test="hot != null">
+                BA_HOT,
+            </if>
+            <if test="createTime != null">
+                BA_CREATE_TIME,
+            </if>
+            <if test="operateTime != null">
+                BA_OPERATE_TIME,
+            </if>
+            <if test="content != null">
+                BA_CONTENT,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{id,jdbcType=VARCHAR},
+            <if test="labelId != null">
+                #{labelId,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="categoryId != null">
+                #{categoryId,jdbcType=VARCHAR},
+            </if>
+            <if test="title != null">
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="summary != null">
+                #{summary,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=CHAR},
+            </if>
+            <if test="hot != null">
+                #{hot,jdbcType=CHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="operateTime != null">
+                #{operateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="content != null">
+                #{content,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.ldsh.blog.system.model.ArticleExample"
+            resultType="java.lang.Integer">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        select count(*) from blog_article
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        update blog_article
+        <set>
+            <if test="record.id != null">
+                ID = #{record.id,jdbcType=VARCHAR},
+            </if>
+            <if test="record.labelId != null">
+                BA_LABEL_ID = #{record.labelId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.userId != null">
+                BA_USER_ID = #{record.userId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.categoryId != null">
+                BA_CATEGORY_ID = #{record.categoryId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.title != null">
+                BA_TITLE = #{record.title,jdbcType=VARCHAR},
+            </if>
+            <if test="record.summary != null">
+                BA_SUMMARY = #{record.summary,jdbcType=VARCHAR},
+            </if>
+            <if test="record.status != null">
+                BA_STATUS = #{record.status,jdbcType=CHAR},
+            </if>
+            <if test="record.hot != null">
+                BA_HOT = #{record.hot,jdbcType=CHAR},
+            </if>
+            <if test="record.createTime != null">
+                BA_CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.operateTime != null">
+                BA_OPERATE_TIME = #{record.operateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.content != null">
+                BA_CONTENT = #{record.content,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExampleWithBLOBs" parameterType="map">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        update blog_article
+        set ID = #{record.id,jdbcType=VARCHAR},
         BA_LABEL_ID = #{record.labelId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.userId != null" >
         BA_USER_ID = #{record.userId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.categoryId != null" >
         BA_CATEGORY_ID = #{record.categoryId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.title != null" >
         BA_TITLE = #{record.title,jdbcType=VARCHAR},
-      </if>
-      <if test="record.summary != null" >
         BA_SUMMARY = #{record.summary,jdbcType=VARCHAR},
-      </if>
-      <if test="record.status != null" >
         BA_STATUS = #{record.status,jdbcType=CHAR},
-      </if>
-      <if test="record.hot != null" >
         BA_HOT = #{record.hot,jdbcType=CHAR},
-      </if>
-      <if test="record.createTime != null" >
         BA_CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.operateTime != null" >
         BA_OPERATE_TIME = #{record.operateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.content != null" >
-        BA_CONTENT = #{record.content,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExampleWithBLOBs" parameterType="map" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    update blog_article
-    set ID = #{record.id,jdbcType=VARCHAR},
-      BA_LABEL_ID = #{record.labelId,jdbcType=VARCHAR},
-      BA_USER_ID = #{record.userId,jdbcType=VARCHAR},
-      BA_CATEGORY_ID = #{record.categoryId,jdbcType=VARCHAR},
-      BA_TITLE = #{record.title,jdbcType=VARCHAR},
-      BA_SUMMARY = #{record.summary,jdbcType=VARCHAR},
-      BA_STATUS = #{record.status,jdbcType=CHAR},
-      BA_HOT = #{record.hot,jdbcType=CHAR},
-      BA_CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
-      BA_OPERATE_TIME = #{record.operateTime,jdbcType=TIMESTAMP},
-      BA_CONTENT = #{record.content,jdbcType=LONGVARCHAR}
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    update blog_article
-    set ID = #{record.id,jdbcType=VARCHAR},
-      BA_LABEL_ID = #{record.labelId,jdbcType=VARCHAR},
-      BA_USER_ID = #{record.userId,jdbcType=VARCHAR},
-      BA_CATEGORY_ID = #{record.categoryId,jdbcType=VARCHAR},
-      BA_TITLE = #{record.title,jdbcType=VARCHAR},
-      BA_SUMMARY = #{record.summary,jdbcType=VARCHAR},
-      BA_STATUS = #{record.status,jdbcType=CHAR},
-      BA_HOT = #{record.hot,jdbcType=CHAR},
-      BA_CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
-      BA_OPERATE_TIME = #{record.operateTime,jdbcType=TIMESTAMP}
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ldsh.blog.system.model.Article" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    update blog_article
-    <set >
-      <if test="labelId != null" >
-        BA_LABEL_ID = #{labelId,jdbcType=VARCHAR},
-      </if>
-      <if test="userId != null" >
+        BA_CONTENT = #{record.content,jdbcType=LONGVARCHAR}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        update blog_article
+        set ID = #{record.id,jdbcType=VARCHAR},
+        BA_LABEL_ID = #{record.labelId,jdbcType=VARCHAR},
+        BA_USER_ID = #{record.userId,jdbcType=VARCHAR},
+        BA_CATEGORY_ID = #{record.categoryId,jdbcType=VARCHAR},
+        BA_TITLE = #{record.title,jdbcType=VARCHAR},
+        BA_SUMMARY = #{record.summary,jdbcType=VARCHAR},
+        BA_STATUS = #{record.status,jdbcType=CHAR},
+        BA_HOT = #{record.hot,jdbcType=CHAR},
+        BA_CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+        BA_OPERATE_TIME = #{record.operateTime,jdbcType=TIMESTAMP}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ldsh.blog.system.model.Article">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        update blog_article
+        <set>
+            <if test="labelId != null">
+                BA_LABEL_ID = #{labelId,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                BA_USER_ID = #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="categoryId != null">
+                BA_CATEGORY_ID = #{categoryId,jdbcType=VARCHAR},
+            </if>
+            <if test="title != null">
+                BA_TITLE = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="summary != null">
+                BA_SUMMARY = #{summary,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                BA_STATUS = #{status,jdbcType=CHAR},
+            </if>
+            <if test="hot != null">
+                BA_HOT = #{hot,jdbcType=CHAR},
+            </if>
+            <if test="createTime != null">
+                BA_CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="operateTime != null">
+                BA_OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="content != null">
+                BA_CONTENT = #{content,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.ldsh.blog.system.model.Article">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        update blog_article
+        set BA_LABEL_ID = #{labelId,jdbcType=VARCHAR},
         BA_USER_ID = #{userId,jdbcType=VARCHAR},
-      </if>
-      <if test="categoryId != null" >
         BA_CATEGORY_ID = #{categoryId,jdbcType=VARCHAR},
-      </if>
-      <if test="title != null" >
         BA_TITLE = #{title,jdbcType=VARCHAR},
-      </if>
-      <if test="summary != null" >
         BA_SUMMARY = #{summary,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null" >
         BA_STATUS = #{status,jdbcType=CHAR},
-      </if>
-      <if test="hot != null" >
         BA_HOT = #{hot,jdbcType=CHAR},
-      </if>
-      <if test="createTime != null" >
         BA_CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="operateTime != null" >
         BA_OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="content != null" >
-        BA_CONTENT = #{content,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.ldsh.blog.system.model.Article" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    update blog_article
-    set BA_LABEL_ID = #{labelId,jdbcType=VARCHAR},
-      BA_USER_ID = #{userId,jdbcType=VARCHAR},
-      BA_CATEGORY_ID = #{categoryId,jdbcType=VARCHAR},
-      BA_TITLE = #{title,jdbcType=VARCHAR},
-      BA_SUMMARY = #{summary,jdbcType=VARCHAR},
-      BA_STATUS = #{status,jdbcType=CHAR},
-      BA_HOT = #{hot,jdbcType=CHAR},
-      BA_CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      BA_OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
-      BA_CONTENT = #{content,jdbcType=LONGVARCHAR}
-    where ID = #{id,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.ldsh.blog.system.model.Article" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    update blog_article
-    set BA_LABEL_ID = #{labelId,jdbcType=VARCHAR},
-      BA_USER_ID = #{userId,jdbcType=VARCHAR},
-      BA_CATEGORY_ID = #{categoryId,jdbcType=VARCHAR},
-      BA_TITLE = #{title,jdbcType=VARCHAR},
-      BA_SUMMARY = #{summary,jdbcType=VARCHAR},
-      BA_STATUS = #{status,jdbcType=CHAR},
-      BA_HOT = #{hot,jdbcType=CHAR},
-      BA_CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      BA_OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP}
-    where ID = #{id,jdbcType=VARCHAR}
-  </update>
+        BA_CONTENT = #{content,jdbcType=LONGVARCHAR}
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.ldsh.blog.system.model.Article">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        update blog_article
+        set BA_LABEL_ID = #{labelId,jdbcType=VARCHAR},
+        BA_USER_ID = #{userId,jdbcType=VARCHAR},
+        BA_CATEGORY_ID = #{categoryId,jdbcType=VARCHAR},
+        BA_TITLE = #{title,jdbcType=VARCHAR},
+        BA_SUMMARY = #{summary,jdbcType=VARCHAR},
+        BA_STATUS = #{status,jdbcType=CHAR},
+        BA_HOT = #{hot,jdbcType=CHAR},
+        BA_CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+        BA_OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP}
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>
+
+
+    <!--<id column="ID" property="id" jdbcType="VARCHAR" />-->
+    <!--<result column="BA_LABEL_ID" property="labelId" jdbcType="VARCHAR" />-->
+    <!--<result column="BA_USER_ID" property="userId" jdbcType="VARCHAR" />-->
+    <!--<result column="BA_CATEGORY_ID" property="categoryId" jdbcType="VARCHAR" />-->
+    <!--<result column="BA_TITLE" property="title" jdbcType="VARCHAR" />-->
+    <!--<result column="BA_SUMMARY" property="summary" jdbcType="VARCHAR" />-->
+    <!--<result column="BA_STATUS" property="status" jdbcType="CHAR" />-->
+    <!--<result column="BA_HOT" property="hot" jdbcType="CHAR" />-->
+    <!--<result column="BA_CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />-->
+    <!--<result column="BA_OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP" />-->
+
+    <!--文章dto-->
+    <resultMap id="ArticleResultMap" type="com.ldsh.blog.system.dto.ArticleDto">
+        <result column="articleId" property="articleId" jdbcType="VARCHAR"/>
+        <result column="categoryId" property="categoryId" jdbcType="VARCHAR"/>
+        <result column="BC_NAME" property="categoryName" jdbcType="VARCHAR"/>
+        <result column="BU_NAME" property="name" jdbcType="VARCHAR"/>
+        <result column="BU_USER_NAME" property="userName" jdbcType="VARCHAR"/>
+        <result column="BA_TITLE" property="title" jdbcType="VARCHAR"/>
+        <result column="BA_STATUS" property="status" jdbcType="VARCHAR"/>
+        <result column="BA_HOT" property="hot" jdbcType="VARCHAR"/>
+        <result column="BA_CREATE_TIME" property="createTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询文章列表-->
+    <select id="selectArticles" parameterType="java.util.Map" resultMap="ArticleResultMap">
+        SELECT
+        ba.id articleId,bc.id categoryId,BC_NAME,BU_NAME,BU_USER_NAME,BA_TITLE,BA_STATUS,BA_HOT,BA_CREATE_TIME
+        FROM blog_article ba,blog_category bc,blog_user bu
+        <where>
+            ba.BA_CATEGORY_ID = bc.ID
+            AND bu.ID = BA_USER_ID
+            <if test="status!=null and status!=''">
+                AND BA_STATUS = #{status}
+            </if>
+            <if test="hot!=null and hot!=''">
+                AND BA_HOT = #{hot}
+            </if>
+            <if test="title!=null and title!=''">
+                AND instr(BA_TITLE,#{title})
+            </if>
+            <if test="categoryName!=nul and categoryName!=''">
+                AND instr(BC_NAME,#{categoryName})
+            </if>
+            ORDER BY BA_CREATE_TIME DESC
+        </where>
+    </select>
+
+    <!--根据id获取文章DTO-->
+    <select id="selectArticleDtoById" parameterType="java.lang.String" resultMap="ArticleResultMap">
+        SELECT
+        ba.id articleId,bc.id categoryId,BC_NAME,BU_NAME,BU_USER_NAME,BA_TITLE,BA_STATUS,BA_HOT,BA_CREATE_TIME
+        FROM blog_article ba,blog_category bc,blog_user bu
+        <where>
+            ba.BA_CATEGORY_ID = bc.ID
+            AND bu.ID = BA_USER_ID
+            AND ba.id = ${id}
+        </where>
+    </select>
+
 </mapper>

@@ -16,7 +16,7 @@
 
     }).extend({
         validate: 'lib/validate/jquery.validate',
-        validateRules: 'common/validateRules'
+        validateRules: 'common/validateRules',
     }); //加载入口
 
 </script>

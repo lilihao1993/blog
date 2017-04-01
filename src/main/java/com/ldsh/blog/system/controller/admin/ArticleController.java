@@ -3,13 +3,13 @@ package com.ldsh.blog.system.controller.admin;
 import com.github.pagehelper.PageInfo;
 import com.ldsh.blog.common.bean.AjaxResponse;
 import com.ldsh.blog.system.dto.ArticleDto;
+import com.ldsh.blog.system.model.Article;
 import com.ldsh.blog.system.service.IArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -78,6 +78,22 @@ public class ArticleController {
         //1.根据id查询文章
         model.addAttribute("article", articleService.selectArticleDtoById(id));
         return "admin/article/edit";
+    }
+
+    /**
+     * 描述：修改文章状态
+     *
+     * @param article
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/modify", method = RequestMethod.GET)
+    @ResponseBody
+    public AjaxResponse<Boolean> modify(Article article) throws Exception {
+        //1.修改状态
+        boolean modify = articleService.modify(article);
+        //2.返回响应
+        return null;
     }
 
 }

@@ -479,7 +479,7 @@
         <where>
             ba.BA_CATEGORY_ID = bc.ID
             AND bu.ID = BA_USER_ID
-            AND ba.id = ${id}
+            AND ba.id = #{id}
         </where>
     </select>
 

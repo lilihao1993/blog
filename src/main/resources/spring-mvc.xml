@@ -58,6 +58,11 @@
             <mvc:exclude-mapping path="/admin/login/**"/>
             <bean class="com.ldsh.blog.common.interceptor.AdminUserAuthorityInterceptor"/>
         </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/client/**"/>
+            <mvc:exclude-mapping path="/client/login/**"/>
+            <bean class="com.ldsh.blog.common.interceptor.ClientUserAuthorityInterceptor"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 
     <!-- jasckson2对象映射-->

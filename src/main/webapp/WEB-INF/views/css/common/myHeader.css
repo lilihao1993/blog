@@ -1,0 +1,45 @@
+div, h1, h2, h3, h4, h5, h6, p, ul, li, dl, dd, input, em, strong, span, a, label, form {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #8f8a8f;
+    /*box-shadow: 0 0 3px rgba(0, 0, 0, 0.14), 0 3px 8px rgba(0, 0, 0, 0.2);*/
+}
+
+.right {
+    float: right;
+    margin: 10px 30px;
+}
+
+.royalblue {
+    background-color: #59b0ff;
+}
+
+.header img {
+    margin-left: 50px;
+}
+
+.login-after img {
+    height: 30px;
+}
+
+.login-info {
+    margin-top: 5px;
+}
+
+.login-after a {
+    color: white;
+    font-family: 宋体;
+}
+
+.subclauses {
+    background: white;
+    padding: 0 200px;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.14), 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.layui-tab-content {
+    display: none;
+}

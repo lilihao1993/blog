@@ -31,7 +31,7 @@ function _login() {
         success: function (data) {
             if (data.data) {
                 layer.msg("登录成功", {icon: 1}, function () {
-                    top.location = "/client/home/page";
+                    top.location = "/client/my/blog";
                 })
             } else if (data.subStatus == 103) {
                 //用户不存在

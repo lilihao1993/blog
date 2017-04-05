@@ -19,6 +19,6 @@ public class MyController {
      */
     @RequestMapping("/blog")
     public String myBlog() throws Exception {
-        return "my/blog";
+        return "client/my/blog";
     }
 }

@@ -39,7 +39,7 @@ public interface IResourceService {
     List<Resource> getResourceList() throws Exception;
 
     /**
-     * 描述：获取跟资源列表
+     * 描述：获取根资源列表
      *
      * @return 资源列表
      * @throws Exception

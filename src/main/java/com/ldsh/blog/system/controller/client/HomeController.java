@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * 登录控制器
+ * 主页控制器
  */
 @Controller("clientHomeController")
 @RequestMapping("/client/home/")

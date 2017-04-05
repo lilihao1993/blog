@@ -84,6 +84,10 @@ function _delete() {
 function _batchDelete() {
     $('#batchDelete').click(function () {
 
+        if ($('.layui-table tbody input:checked').length == 0){
+            parent.layer.msg('请先勾选要删的类别！');
+            return false;
+        }
         parent.layer.confirm("确定要删除所选的类别？", function () {
             //获取所有选中的类别id
             var array = new Array();

@@ -13,9 +13,9 @@
 
 <form id="queryForm" class="layui-form" style="margin:30px 0 20px 0">
 
-    <div class="row">
+    <div class="row ">
         <div class="col-md-3">
-            <div class="col-md-4">
+            <div class="col-md-4 text-right">
                 状态：
             </div>
             <div class="col-md-8">
@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="col-md-4">
+            <div class="col-md-4 text-right">
                 热门：
             </div>
             <div class="col-md-8">
@@ -40,19 +40,19 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="col-md-4">
+            <div class="col-md-4 text-right">
                 类别名称:
             </div>
             <div class="col-md-8">
-                <input type="text" id="categoryName" name="categoryName" class="layui-input"/>
+                <input type="text" id="categoryName" placeholder="请输入类别名称" name="categoryName" class="layui-input"/>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="col-md-4">
+            <div class="col-md-4 text-right">
                 标题：
             </div>
             <div class="col-md-8">
-                <input type="text" id="title" name="title" class="layui-input"/>
+                <input type="text" id="title" placeholder="请输入标题" name="title" class="layui-input"/>
             </div>
         </div>
     </div>
@@ -69,7 +69,7 @@
 <table class="layui-table" lay-skin="line">
     <thead>
     <tr>
-        <th><input type="checkbox" class="js-checkbox"/></th>
+        <th>序号</th>
         <th>标题</th>
         <th>类别名称</th>
         <th>用户名</th>
@@ -91,7 +91,7 @@
 <script id="template" type="text/html">
     {{#  layui.each(d.articles, function(index, article){ }}
     <tr>
-        <td><input type="checkbox" js-articleId="{{article.articleId}}"/></td>
+        <td>{{d.size*d.pre+index+1}}</td>
         <td>{{article.title}}</td>
         <td>{{article.categoryName}}</td>
         <td>{{article.userName}}</td>

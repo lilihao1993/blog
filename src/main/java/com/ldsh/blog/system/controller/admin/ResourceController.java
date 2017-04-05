@@ -7,10 +7,8 @@ import com.ldsh.blog.system.service.IResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -60,9 +58,13 @@ public class ResourceController {
      */
     @RequestMapping(value = "/addoredit", method = RequestMethod.GET)
     public String toAddResource(String id, Model model) throws Exception {
+        //1.获取根资源列表
         model.addAttribute("list", resourceService.getRootResourceList());
-        model.addAttribute("resource", resourceService.get(id));
-        return "admin/resources/list";
+        //2.若id不为空，则是修改，获取资源对象传到前台
+        if (!StringUtils.isEmpty(id)) {
+            model.addAttribute("resource", resourceService.get(id));
+        }
+        return "admin/resources/addOrEdit";
     }
 
 
@@ -96,14 +98,15 @@ public class ResourceController {
      * 描述：修改资源
      *
      * @param resource 资源对象
-     * @param model    model
      * @return
      * @throws Exception
      */
     @RequestMapping(value = "/modify", method = RequestMethod.POST)
-    public String modify(Resource resource, Model model) throws Exception {
-        resourceService.modify(resource);
-        return "admin/resources/list";
+    @ResponseBody
+    public AjaxResponse<Boolean> modify(Resource resource) throws Exception {
+        AjaxResponse<Boolean> response = new AjaxResponse<>();
+        response.setData(resourceService.modify(resource));
+        return response;
     }
 
     /**
@@ -126,8 +129,8 @@ public class ResourceController {
      * @throws Exception
      */
     @ResponseBody
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public AjaxResponse<Boolean> delete(String id) throws Exception {
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    public AjaxResponse<Boolean> delete(@PathVariable("id") String id) throws Exception {
         return new AjaxResponse<>(resourceService.remove(id));
     }
 

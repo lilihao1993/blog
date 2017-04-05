@@ -10,7 +10,8 @@ layui.define(['layer', 'form', 'element', 'laytpl', 'validate', 'laypage', 'lib/
     _query(laytpl);
     //显示编辑层
     _edit();
-
+    //高权限删除文章
+    __delete();
     exports('admin/article/list', {});
 });
 
@@ -26,29 +27,6 @@ function _init(laytpl) {
         window.event.returnValue = false; //IE
         event.preventDefault(); //其他
     });
-
-    var all = $('.js-checkbox:checkbox');
-    var other = $('.layui-table tbody input:checkbox');
-
-    //复选框事件
-    $('.js-checkbox').click(function () {
-        if ($('.js-checkbox:checked').size() == '1') {
-            //勾上所有的
-            other.prop('checked', true);
-        } else {
-            other.prop('checked', false);
-        }
-    });
-    //若其他选中的点了，则所有的取消勾选
-    other.click(function () {
-        if (other.size() == $('.layui-table tbody input:checked').size()) {
-            all.prop('checked', true);
-        } else {
-            all.prop('checked', false);
-        }
-    });
-
-
     //初始化分页
     var map = {};
     map['pageSize'] = pageSize;
@@ -126,10 +104,11 @@ function request(laytpl, num) {
         data: JSON.stringify(map),
         contentType: "application/json",
         success: function (data) {
+            console.log(data);
             //获取模板
             var gettpl = $('#template').html();
             //给模板设置值
-            var content = laytpl(gettpl).render({articles: data.data.list});
+            var content = laytpl(gettpl).render({articles: data.data.list, size: pageSize, pre: data.data.prePage});
             //设置内容
             $('table tbody').html(content);
         }, error: function (jqXHR) {
@@ -173,5 +152,32 @@ function _edit() {
             // shadeClose:true,
             content: '/admin/article/edit/' + $(this).attr("js-articleId")
         });
+    });
+}
+
+/**
+ * 描述：删除文章
+ * @private
+ */
+function __delete() {
+    $(document).on("click", ".delete", function () {
+        var id = $(this).attr('js-articleId');
+        parent.layer.confirm('确认删除该文章？', {
+            yes: function () {
+                $.ajax({
+                    url: '/admin/article/delete/' + id,
+                    type: 'POST',
+                    success: function (data) {
+                        if (data.data) {
+                            parent.layer.closeAll();
+                            location.reload();
+                        } else {
+                            parent.layer.msg('删除失败，请稍后！');
+                        }
+                    }
+                });
+            }
+        });
+
     });
 }

@@ -12,32 +12,30 @@
 <body style="text-align:center">
 
 <form class="layui-form" style="margin:60px auto;width:450px">
+    <input type="hidden" name="id" value="${article.articleId}">
     <div class="layui-form-item">
         <label class="layui-form-label" >姓名：</label>
         <div class="layui-input-inline">
-            <input type="text" name="userName" value="${article.userName}" autocomplete="off" class="layui-input" disabled>
+            <input type="text"  value="${article.userName}" autocomplete="off" class="layui-input" disabled>
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label" >类别：</label>
         <div class="layui-input-inline">
-            <input type="text" name="categoryName" value="${article.categoryName}" autocomplete="off"
+            <input type="text"  value="${article.categoryName}" autocomplete="off"
                    class="layui-input" disabled>
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">标题：</label>
         <div class="layui-input-inline">
-            <input type="text" name="title" value="${article.title}" autocomplete="off" class="layui-input" disabled>
+            <input type="text"  value="${article.title}" autocomplete="off" class="layui-input" disabled>
         </div>
     </div>
 
     <div class="row status">
         <div class="col-md-8 pull-left" style="margin: 0 0 0 22px">
             <label>状态：</label>
-            <%--<input type="button" js-status="0" class="btn <c:if test="${article.status==0}">btn-info</c:if> <c:if test="${article.status!=0}">btn-success</c:if> btn-lg" value="不可见"/>--%>
-            <%--<input type="button" js-status="1" class="btn <c:if test="${article.status==1}">btn-info</c:if> <c:if test="${article.status!=1}">btn-success</c:if> btn-lg" value="可见"/>--%>
-            <%--<input type="button" js-status="2" class="btn <c:if test="${article.status==2}">btn-info</c:if> <c:if test="${article.status!=2}">btn-success</c:if> btn-lg" value="非法"/>--%>
             <input type="radio" value="0" name="status" title="不可见"<c:if test="${article.status==0}">checked</c:if>/>
             <input type="radio" value="1" name="status" title="可见" <c:if test="${article.status==1}">checked</c:if>/>
             <input type="radio" value="2" name="status" title="非法"<c:if test="${article.status==2}">checked</c:if>/>
@@ -47,8 +45,6 @@
     <div class="row hot">
         <div class="col-md-8 pull-left"style="margin: 20px 0 0 36px">
         <label >HOT：</label>
-        <%--<input type="button" js-hot="0" class="btn <c:if test="${article.status==0}">btn-info</c:if> <c:if test="${article.status!=0}">btn-success</c:if> btn-lg" value="非热门"/>--%>
-        <%--<input type="button" js-hot="1" class="btn <c:if test="${article.status==1}">btn-info</c:if> <c:if test="${article.status!=1}">btn-success</c:if> btn-lg" value="热门"/>--%>
             <input type="radio" value="0" name="hot" title="非热门"<c:if test="${article.hot==0}">checked</c:if>/>
             <input type="radio" value="1" name="hot" title="热门" <c:if test="${article.hot==1}">checked</c:if>/>
         </div>

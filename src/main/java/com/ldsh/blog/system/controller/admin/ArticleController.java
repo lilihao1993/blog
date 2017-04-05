@@ -83,17 +83,38 @@ public class ArticleController {
     /**
      * 描述：修改文章状态
      *
-     * @param article
+     * @param article 文章对象
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/modify", method = RequestMethod.GET)
+    @RequestMapping(value = "/modify", method = RequestMethod.POST)
     @ResponseBody
     public AjaxResponse<Boolean> modify(Article article) throws Exception {
         //1.修改状态
         boolean modify = articleService.modify(article);
         //2.返回响应
-        return null;
+        AjaxResponse<Boolean> response = new AjaxResponse<>();
+        response.setData(modify);
+        return response;
+    }
+
+
+    /**
+     * 描述：删除文章
+     *
+     * @param id id
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxResponse<Boolean> delete(@PathVariable("id") String id) throws Exception {
+        //1.删除文章
+        boolean flag = articleService.deleteById(id);
+        //2.返回响应
+        AjaxResponse<Boolean> response = new AjaxResponse<>();
+        response.setData(flag);
+        return response;
     }
 
 }

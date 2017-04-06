@@ -71,7 +71,7 @@ public class LoginController {
      */
     @ResponseBody
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public AjaxResponse<Boolean> register(ClientUser clientUser, String yzm, HttpSession session, Model model) throws Exception {
+    public AjaxResponse<Boolean> register(ClientUser clientUser, String yzm, HttpSession session) throws Exception {
         Boolean isResponseCorrect = imageCaptchaService.validateResponseForID(session.getId(), yzm);
         AjaxResponse<Boolean> response = new AjaxResponse<>();
         //1.若验证码不正确

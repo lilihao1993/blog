@@ -84,7 +84,7 @@ public class UploadController {
      */
     private static void delete(String key) throws Exception {
         OSSClient ossClient = InitOSSClient.InItOSSClient();
-        ossClient.deleteObject(InitOSSClient.BucketName,key);
+        ossClient.deleteObject(InitOSSClient.BucketName, key);
     }
 
     public static void main(String[] args) throws Exception {

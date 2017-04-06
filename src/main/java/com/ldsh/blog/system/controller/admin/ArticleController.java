@@ -16,7 +16,7 @@ import java.util.Map;
 /**
  * 描述：admin 文章控制器
  */
-@Controller("ArticleController")
+@Controller("adminArticleController")
 @RequestMapping("/admin/article")
 public class ArticleController {
 

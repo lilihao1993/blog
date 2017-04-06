@@ -22,16 +22,7 @@
         </c:if>
     </div>
 </ul>
-<div class="layui-tab-brief subclauses" lay-filter="docDemoTabBrief">
-    <ul class="layui-tab-title">
-        <li class="layui-this">首页</li>
-        <li>技术问答</li>
-        <li>个人主页</li>
-        <li>其他</li>
-    </ul>
-    <div class="layui-tab-content"></div>
-</div>
 <jsp:include page="../common/common.jsp"/>
 <script>
-    layui.use(['client/common/header', 'validate', 'validateRules']);
+    layui.use(['client/common/myHeader', 'validate', 'validateRules']);
 </script>

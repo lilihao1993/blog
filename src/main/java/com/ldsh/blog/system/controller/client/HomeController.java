@@ -25,7 +25,6 @@ public class HomeController {
      */
     @RequestMapping(value = "page", method = RequestMethod.GET)
     public String page(Model model, @ModelAttribute(Constant.SESSION_ADMIN_USER_INFO) AdminUser adminUser) throws Exception {
-
         return "client/login/index";
     }
 }

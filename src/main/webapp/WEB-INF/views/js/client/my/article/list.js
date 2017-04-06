@@ -3,7 +3,7 @@ layui.define(['layer', 'form', 'element', 'validate'], function (exports) {
         element = layui.element(),
         form = layui.form();
 
+    $('#article').addClass('layui-this');
+    exports('client/my/article/list', {});
 
-    $('#home').addClass('layui-this');
-    exports('client/my/blog', {});
 });

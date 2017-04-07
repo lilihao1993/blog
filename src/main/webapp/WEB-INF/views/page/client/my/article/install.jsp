@@ -13,7 +13,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">标题</label>
             <div class="layui-input-inline">
-                <input type="text" name="title" required id="title"  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                <input type="text" name="title" required id="title" maxlength="255"  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-select">
@@ -25,6 +25,14 @@
                         <option value="${category.id}" ${category.id==article.categoryId?'selected':''}>${category.name}</option>
                     </c:forEach>
                 </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">描述</label>
+            <div class="layui-input-inline">
+                <textarea name="summary" class="layui-textarea" id="summary" placeholder="请输入描述">
+
+                </textarea>
             </div>
         </div>
     </form>

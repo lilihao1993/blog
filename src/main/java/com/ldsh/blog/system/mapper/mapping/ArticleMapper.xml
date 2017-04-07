@@ -1,26 +1,27 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ldsh.blog.system.mapper.ArticleMapper">
     <resultMap id="BaseResultMap" type="com.ldsh.blog.system.model.Article">
         <!--
           WARNING - @mbggenerated
         -->
-        <id column="ID" property="id" jdbcType="VARCHAR"/>
-        <result column="BA_LABEL_ID" property="labelId" jdbcType="VARCHAR"/>
-        <result column="BA_USER_ID" property="userId" jdbcType="VARCHAR"/>
-        <result column="BA_CATEGORY_ID" property="categoryId" jdbcType="VARCHAR"/>
-        <result column="BA_TITLE" property="title" jdbcType="VARCHAR"/>
-        <result column="BA_SUMMARY" property="summary" jdbcType="VARCHAR"/>
-        <result column="BA_STATUS" property="status" jdbcType="CHAR"/>
-        <result column="BA_HOT" property="hot" jdbcType="CHAR"/>
-        <result column="BA_CREATE_TIME" property="createTime" jdbcType="TIMESTAMP"/>
-        <result column="BA_OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP"/>
+        <id column="ID" jdbcType="VARCHAR" property="id"/>
+        <result column="BA_LABEL_ID" jdbcType="VARCHAR" property="labelId"/>
+        <result column="BA_USER_ID" jdbcType="VARCHAR" property="userId"/>
+        <result column="BA_CATEGORY_ID" jdbcType="VARCHAR" property="categoryId"/>
+        <result column="BA_TITLE" jdbcType="VARCHAR" property="title"/>
+        <result column="BA_SUMMARY" jdbcType="VARCHAR" property="summary"/>
+        <result column="BA_READ_COUNT" jdbcType="INTEGER" property="readCount"/>
+        <result column="BA_STATUS" jdbcType="CHAR" property="status"/>
+        <result column="BA_HOT" jdbcType="CHAR" property="hot"/>
+        <result column="BA_CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="BA_OPERATE_TIME" jdbcType="TIMESTAMP" property="operateTime"/>
     </resultMap>
-    <resultMap id="ResultMapWithBLOBs" type="com.ldsh.blog.system.model.Article" extends="BaseResultMap">
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.ldsh.blog.system.model.Article">
         <!--
           WARNING - @mbggenerated
         -->
-        <result column="BA_CONTENT" property="content" jdbcType="LONGVARCHAR"/>
+        <result column="BA_CONTENT" jdbcType="LONGVARCHAR" property="content"/>
     </resultMap>
     <sql id="Example_Where_Clause">
         <!--
@@ -29,7 +30,7 @@
         <where>
             <foreach collection="oredCriteria" item="criteria" separator="or">
                 <if test="criteria.valid">
-                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
                         <foreach collection="criteria.criteria" item="criterion">
                             <choose>
                                 <when test="criterion.noValue">
@@ -43,7 +44,7 @@
                                 </when>
                                 <when test="criterion.listValue">
                                     and ${criterion.condition}
-                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
                                              separator=",">
                                         #{listItem}
                                     </foreach>
@@ -62,7 +63,7 @@
         <where>
             <foreach collection="example.oredCriteria" item="criteria" separator="or">
                 <if test="criteria.valid">
-                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
                         <foreach collection="criteria.criteria" item="criterion">
                             <choose>
                                 <when test="criterion.noValue">
@@ -76,7 +77,7 @@
                                 </when>
                                 <when test="criterion.listValue">
                                     and ${criterion.condition}
-                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
                                              separator=",">
                                         #{listItem}
                                     </foreach>
@@ -92,8 +93,8 @@
         <!--
           WARNING - @mbggenerated
         -->
-        ID, BA_LABEL_ID, BA_USER_ID, BA_CATEGORY_ID, BA_TITLE, BA_SUMMARY, BA_STATUS, BA_HOT,
-        BA_CREATE_TIME, BA_OPERATE_TIME
+        ID, BA_LABEL_ID, BA_USER_ID, BA_CATEGORY_ID, BA_TITLE, BA_SUMMARY, BA_READ_COUNT,
+        BA_STATUS, BA_HOT, BA_CREATE_TIME, BA_OPERATE_TIME
     </sql>
     <sql id="Blob_Column_List">
         <!--
@@ -101,8 +102,8 @@
         -->
         BA_CONTENT
     </sql>
-    <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs"
-            parameterType="com.ldsh.blog.system.model.ArticleExample">
+    <select id="selectByExampleWithBLOBs" parameterType="com.ldsh.blog.system.model.ArticleExample"
+            resultMap="ResultMapWithBLOBs">
         <!--
           WARNING - @mbggenerated
         -->
@@ -121,7 +122,7 @@
             order by ${orderByClause}
         </if>
     </select>
-    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ldsh.blog.system.model.ArticleExample">
+    <select id="selectByExample" parameterType="com.ldsh.blog.system.model.ArticleExample" resultMap="BaseResultMap">
         <!--
           WARNING - @mbggenerated
         -->
@@ -138,7 +139,7 @@
             order by ${orderByClause}
         </if>
     </select>
-    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String">
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
         <!--
           WARNING - @mbggenerated
         -->
@@ -169,23 +170,23 @@
         <!--
           WARNING - @mbggenerated
         -->
-        <selectKey resultType="java.lang.String" keyProperty="id" order="BEFORE">
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
             select replace(uuid(), '-', '')
         </selectKey>
         insert into blog_article (ID, BA_LABEL_ID, BA_USER_ID,
         BA_CATEGORY_ID, BA_TITLE, BA_SUMMARY,
-        BA_STATUS, BA_HOT, BA_CREATE_TIME,
+        BA_READ_COUNT, BA_STATUS, BA_HOT, BA_CREATE_TIME,
         BA_OPERATE_TIME, BA_CONTENT)
         values (#{id,jdbcType=VARCHAR}, #{labelId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR},
         #{categoryId,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR},
-        #{status,jdbcType=CHAR}, #{hot,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP},
+        #{readCount,jdbcType=INTEGER}, #{status,jdbcType=CHAR}, #{hot,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP},
         #{operateTime,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR})
     </insert>
     <insert id="insertSelective" parameterType="com.ldsh.blog.system.model.Article">
         <!--
           WARNING - @mbggenerated
         -->
-        <selectKey resultType="java.lang.String" keyProperty="id" order="BEFORE">
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
             select replace(uuid(), '-', '')
         </selectKey>
         insert into blog_article
@@ -205,6 +206,9 @@
             </if>
             <if test="summary != null">
                 BA_SUMMARY,
+            </if>
+            <if test="readCount != null">
+                BA_READ_COUNT,
             </if>
             <if test="status != null">
                 BA_STATUS,
@@ -238,6 +242,9 @@
             </if>
             <if test="summary != null">
                 #{summary,jdbcType=VARCHAR},
+            </if>
+            <if test="readCount != null">
+                #{readCount,jdbcType=INTEGER},
             </if>
             <if test="status != null">
                 #{status,jdbcType=CHAR},
@@ -290,6 +297,9 @@
             <if test="record.summary != null">
                 BA_SUMMARY = #{record.summary,jdbcType=VARCHAR},
             </if>
+            <if test="record.readCount != null">
+                BA_READ_COUNT = #{record.readCount,jdbcType=INTEGER},
+            </if>
             <if test="record.status != null">
                 BA_STATUS = #{record.status,jdbcType=CHAR},
             </if>
@@ -321,6 +331,7 @@
         BA_CATEGORY_ID = #{record.categoryId,jdbcType=VARCHAR},
         BA_TITLE = #{record.title,jdbcType=VARCHAR},
         BA_SUMMARY = #{record.summary,jdbcType=VARCHAR},
+        BA_READ_COUNT = #{record.readCount,jdbcType=INTEGER},
         BA_STATUS = #{record.status,jdbcType=CHAR},
         BA_HOT = #{record.hot,jdbcType=CHAR},
         BA_CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
@@ -341,6 +352,7 @@
         BA_CATEGORY_ID = #{record.categoryId,jdbcType=VARCHAR},
         BA_TITLE = #{record.title,jdbcType=VARCHAR},
         BA_SUMMARY = #{record.summary,jdbcType=VARCHAR},
+        BA_READ_COUNT = #{record.readCount,jdbcType=INTEGER},
         BA_STATUS = #{record.status,jdbcType=CHAR},
         BA_HOT = #{record.hot,jdbcType=CHAR},
         BA_CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
@@ -370,6 +382,9 @@
             <if test="summary != null">
                 BA_SUMMARY = #{summary,jdbcType=VARCHAR},
             </if>
+            <if test="readCount != null">
+                BA_READ_COUNT = #{readCount,jdbcType=INTEGER},
+            </if>
             <if test="status != null">
                 BA_STATUS = #{status,jdbcType=CHAR},
             </if>
@@ -398,6 +413,7 @@
         BA_CATEGORY_ID = #{categoryId,jdbcType=VARCHAR},
         BA_TITLE = #{title,jdbcType=VARCHAR},
         BA_SUMMARY = #{summary,jdbcType=VARCHAR},
+        BA_READ_COUNT = #{readCount,jdbcType=INTEGER},
         BA_STATUS = #{status,jdbcType=CHAR},
         BA_HOT = #{hot,jdbcType=CHAR},
         BA_CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
@@ -415,6 +431,7 @@
         BA_CATEGORY_ID = #{categoryId,jdbcType=VARCHAR},
         BA_TITLE = #{title,jdbcType=VARCHAR},
         BA_SUMMARY = #{summary,jdbcType=VARCHAR},
+        BA_READ_COUNT = #{readCount,jdbcType=INTEGER},
         BA_STATUS = #{status,jdbcType=CHAR},
         BA_HOT = #{hot,jdbcType=CHAR},
         BA_CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
@@ -434,21 +451,24 @@
     <!--<result column="BA_CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />-->
     <!--<result column="BA_OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP" />-->
 
-    <!--文章dto-->
+    <!--admin文章dto-->
     <resultMap id="ArticleResultMap" type="com.ldsh.blog.system.dto.ArticleDto">
-        <result column="articleId" property="articleId" jdbcType="VARCHAR"/>
-        <result column="categoryId" property="categoryId" jdbcType="VARCHAR"/>
-        <result column="BC_NAME" property="categoryName" jdbcType="VARCHAR"/>
-        <result column="BU_NAME" property="name" jdbcType="VARCHAR"/>
-        <result column="BU_USER_NAME" property="userName" jdbcType="VARCHAR"/>
-        <result column="BA_TITLE" property="title" jdbcType="VARCHAR"/>
-        <result column="BA_STATUS" property="status" jdbcType="VARCHAR"/>
-        <result column="BA_HOT" property="hot" jdbcType="VARCHAR"/>
-        <result column="BA_CREATE_TIME" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="articleId" jdbcType="VARCHAR" property="articleId"/>
+        <result column="categoryId" jdbcType="VARCHAR" property="categoryId"/>
+        <result column="BC_NAME" jdbcType="VARCHAR" property="categoryName"/>
+        <result column="BU_NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="BU_USER_NAME" jdbcType="VARCHAR" property="userName"/>
+        <result column="BA_TITLE" jdbcType="VARCHAR" property="title"/>
+        <result column="BA_STATUS" jdbcType="VARCHAR" property="status"/>
+        <result column="BA_HOT" jdbcType="VARCHAR" property="hot"/>
+        <result column="BA_CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
     </resultMap>
-
-    <!--查询文章列表-->
-    <select id="selectArticles" parameterType="java.util.Map" resultMap="ArticleResultMap">
+    <!--client文章dto-->
+    <resultMap extends="BaseResultMap" id="clientArticleResultMap" type="com.ldsh.blog.system.dto.ClinetArticleDto">
+        <result column="count" jdbcType="INTEGER" property="count"/>
+    </resultMap>
+    <!--admin查询文章列表-->
+    <select id="adminSelectArticles" parameterType="java.util.Map" resultMap="ArticleResultMap">
         SELECT
         ba.id articleId,bc.id categoryId,BC_NAME,BU_NAME,BU_USER_NAME,BA_TITLE,BA_STATUS,BA_HOT,BA_CREATE_TIME
         FROM blog_article ba,blog_category bc,blog_user bu
@@ -483,4 +503,21 @@
         </where>
     </select>
 
+    <!--client查询文章列表-->
+    <select id="clientSelectArticles" parameterType="java.util.Map" resultMap="clientArticleResultMap">
+        SELECT
+        ba.ID ID, BA_LABEL_ID, BA_USER_ID,BA_READ_COUNT, BA_CATEGORY_ID, BA_TITLE, BA_SUMMARY, BA_STATUS, BA_HOT,
+        BA_CREATE_TIME, BA_OPERATE_TIME,COUNT(bc.ID) count
+        FROM blog_article ba LEFT JOIN blog_comment bc ON ba.id = bc.BC_ARTICLE_ID
+        <where>
+            <if test="userId!=null and userId!=''">
+                BA_USER_ID = #{userId}
+            </if>
+            <if test="title!=null and title!=''">
+                AND instr(BA_TITLE,#{title})
+            </if>
+            GROUP BY ba.ID
+        </where>
+
+    </select>
 </mapper>

@@ -1,5 +1,7 @@
 package com.ldsh.blog.system.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Article {
@@ -40,6 +42,12 @@ public class Article {
     private String summary;
 
     /**
+     * 阅读数, 所属表字段为blog_article.BA_READ_COUNT
+     * @mbggenerated
+     */
+    private Integer readCount;
+
+    /**
      * 文章状态（0：不可见，1：可见，2：非法文章）, 所属表字段为blog_article.BA_STATUS
      * @mbggenerated
      */
@@ -55,6 +63,7 @@ public class Article {
      * 创建时间, 所属表字段为blog_article.BA_CREATE_TIME
      * @mbggenerated
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
     /**
@@ -163,6 +172,22 @@ public class Article {
      */
     public void setSummary(String summary) {
         this.summary = summary;
+    }
+
+    /**
+     * 返回列值： blog_article.BA_READ_COUNT
+     * @mbggenerated
+     */
+    public Integer getReadCount() {
+        return readCount;
+    }
+
+    /**
+     * 设置列值：blog_article.BA_READ_COUNT
+     * @mbggenerated
+     */
+    public void setReadCount(Integer readCount) {
+        this.readCount = readCount;
     }
 
     /**

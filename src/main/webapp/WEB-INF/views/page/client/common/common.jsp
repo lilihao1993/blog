@@ -2,6 +2,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script src="<c:url value='/js/lib/layui/layui.js' />"></script>
 <script src="<c:url value='/js/lib/jquery.js' />"></script>
+<!DOCTYPE html>
+<head>
+    <title></title>
+</head>
+<body>
+
+</body>
 <script>
     layui.config({
         base: '/js/' //你的模块目录

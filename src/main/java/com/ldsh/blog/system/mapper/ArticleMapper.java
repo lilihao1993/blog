@@ -1,6 +1,7 @@
 package com.ldsh.blog.system.mapper;
 
 import com.ldsh.blog.system.dto.ArticleDto;
+import com.ldsh.blog.system.dto.ClinetArticleDto;
 import com.ldsh.blog.system.model.Article;
 import com.ldsh.blog.system.model.ArticleExample;
 
@@ -81,12 +82,12 @@ public interface ArticleMapper {
     int updateByPrimaryKey(Article record);
 
     /**
-     * 描述：查询文章列表
+     * 描述：admin 查询文章列表
      *
      * @param map 查询参数
      * @return
      */
-    List<ArticleDto> selectArticles(Map<String, Object> map);
+    List<ArticleDto> adminSelectArticles(Map<String, Object> map);
 
     /**
      * 描述：根据id获取文章dto
@@ -95,4 +96,13 @@ public interface ArticleMapper {
      * @return
      */
     ArticleDto selectArticleDtoById(@Param("id") String id);
+
+    /**
+     * 描述：client 查询文章列表
+     *
+     * @param map 查询参数
+     * @return
+     */
+    List<ClinetArticleDto> clientSelectArticles(Map<String, Object> map);
+
 }

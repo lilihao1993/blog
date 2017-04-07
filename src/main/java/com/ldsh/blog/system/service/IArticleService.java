@@ -2,6 +2,7 @@ package com.ldsh.blog.system.service;
 
 import com.github.pagehelper.PageInfo;
 import com.ldsh.blog.system.dto.ArticleDto;
+import com.ldsh.blog.system.dto.ClinetArticleDto;
 import com.ldsh.blog.system.model.Article;
 
 import java.util.Map;
@@ -12,12 +13,20 @@ import java.util.Map;
 public interface IArticleService {
 
     /**
-     * 描述：分页查询文章列表
+     * 描述：admin 分页查询文章列表
      *
      * @param map 查询参数
      * @return
      */
     PageInfo<ArticleDto> selectArticles(Map<String, Object> map);
+
+    /**
+     * 描述：client 分页查询文章列表
+     *
+     * @param map 查询参数
+     * @return
+     */
+    PageInfo<ClinetArticleDto> selectArticlesByUserId(Map<String, Object> map);
 
     /**
      * 描述：修改文章状态

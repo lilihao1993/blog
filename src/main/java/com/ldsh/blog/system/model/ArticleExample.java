@@ -570,6 +570,66 @@ public class ArticleExample {
             return (Criteria) this;
         }
 
+        public Criteria andReadCountIsNull() {
+            addCriterion("BA_READ_COUNT is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReadCountIsNotNull() {
+            addCriterion("BA_READ_COUNT is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReadCountEqualTo(Integer value) {
+            addCriterion("BA_READ_COUNT =", value, "readCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andReadCountNotEqualTo(Integer value) {
+            addCriterion("BA_READ_COUNT <>", value, "readCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andReadCountGreaterThan(Integer value) {
+            addCriterion("BA_READ_COUNT >", value, "readCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andReadCountGreaterThanOrEqualTo(Integer value) {
+            addCriterion("BA_READ_COUNT >=", value, "readCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andReadCountLessThan(Integer value) {
+            addCriterion("BA_READ_COUNT <", value, "readCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andReadCountLessThanOrEqualTo(Integer value) {
+            addCriterion("BA_READ_COUNT <=", value, "readCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andReadCountIn(List<Integer> values) {
+            addCriterion("BA_READ_COUNT in", values, "readCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andReadCountNotIn(List<Integer> values) {
+            addCriterion("BA_READ_COUNT not in", values, "readCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andReadCountBetween(Integer value1, Integer value2) {
+            addCriterion("BA_READ_COUNT between", value1, value2, "readCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andReadCountNotBetween(Integer value1, Integer value2) {
+            addCriterion("BA_READ_COUNT not between", value1, value2, "readCount");
+            return (Criteria) this;
+        }
+
         public Criteria andStatusIsNull() {
             addCriterion("BA_STATUS is null");
             return (Criteria) this;
